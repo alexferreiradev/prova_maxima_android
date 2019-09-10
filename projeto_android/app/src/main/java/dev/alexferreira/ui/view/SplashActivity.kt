@@ -1,7 +1,8 @@
-package dev.alexferreira.ui.view.splashactivity
+package dev.alexferreira.ui.view
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.app.AppCompatActivity
+import dev.alexferreira.R
 
 class SplashActivity : AppCompatActivity() {
 
