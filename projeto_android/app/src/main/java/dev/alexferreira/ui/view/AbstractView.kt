@@ -11,8 +11,7 @@ abstract class AbstractView<ViewType : IView, PresenterType : IPresenter<ViewTyp
     IView {
     @field:[Inject]
     lateinit var presenter: PresenterType
-
-    abstract fun getSubView(): ViewType
+    lateinit var view: ViewType
 
     private fun initDagger() {
         AndroidInjection.inject(this)
@@ -20,8 +19,18 @@ abstract class AbstractView<ViewType : IView, PresenterType : IPresenter<ViewTyp
 
     override fun onCreate(savedInstanceState: Bundle?) {
         initDagger()
+        validateViewType()
         validateDecoratorsConfig()
         super.onCreate(savedInstanceState)
+    }
+
+    @Suppress("UNCHECKED_CAST")
+    private fun validateViewType() {
+        try {
+            view = this as ViewType
+        } catch (e: ClassCastException) {
+            throw IllegalArgumentException("View não implementa contrato de view", e)
+        }
     }
 
     private fun validateDecoratorsConfig() {
