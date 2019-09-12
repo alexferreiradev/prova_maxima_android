@@ -17,17 +17,19 @@ abstract class AbstractView<ViewType : IView, PresenterType : IPresenter<ViewTyp
         AndroidInjection.inject(this)
     }
 
+    @Suppress("UNCHECKED_CAST")
     override fun onCreate(savedInstanceState: Bundle?) {
         initDagger()
-        validateViewType()
-        validateDecoratorsConfig()
         super.onCreate(savedInstanceState)
+        validateDecoratorsConfig()
+        view = castToViewType()
+        presenter.onViewCreated(view, applicationContext, intent)
     }
 
     @Suppress("UNCHECKED_CAST")
-    private fun validateViewType() {
+    private fun castToViewType(): ViewType {
         try {
-            view = this as ViewType
+            return this as ViewType
         } catch (e: ClassCastException) {
             throw IllegalArgumentException("View não implementa contrato de view", e)
         }
@@ -61,5 +63,9 @@ abstract class AbstractView<ViewType : IView, PresenterType : IPresenter<ViewTyp
 
     override fun hideProgressBar() {
 //        ViewHelper.hideView(progress_bar)
+    }
+
+    override fun openMainMenuView() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }

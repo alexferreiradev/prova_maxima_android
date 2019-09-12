@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">SplashActivity</string>
+    <string name="cd_splash_image">Imagem de fundo para tela inteira</string>
 </resources>
