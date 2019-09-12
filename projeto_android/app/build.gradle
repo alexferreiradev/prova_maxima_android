@@ -1,7 +1,7 @@
 apply plugin: 'com.android.application'
 apply plugin: 'kotlin-android'
 apply plugin: 'kotlin-android-extensions'
-apply plugin: 'kotlin-kapt' // Usado para dagger 2
+apply plugin: 'kotlin-kapt' // Usado para dagger 2 e room
 
 android {
     compileSdkVersion 28
@@ -78,7 +78,6 @@ dependencies {
 
 //    Dependencias de Room
     implementation "android.arch.persistence.room:runtime:$room_version"
-    annotationProcessor "android.arch.persistence.room:compiler:$room_version"
     kapt "android.arch.persistence.room:compiler:$room_version"
 
     //	Dependencias para Injeção de Dependencias
@@ -94,12 +93,13 @@ dependencies {
     testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
     testImplementation "org.robolectric:robolectric:${roboletricVersion}"
     testImplementation "org.robolectric:shadows-supportv4:${roboletricVersion}"
-    testImplementation "org.mockito:mockito-android:${mockitoVersion}", excludeSupportGroup
+    kaptTest "com.google.dagger:dagger-compiler:${daggerVersion}"
 
     androidTestImplementation "org.mockito:mockito-android:${mockitoVersion}", excludeSupportGroup
     androidTestImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoNhaarmanVersion}"
     androidTestImplementation "com.android.support.test:runner:${androiTestVersion}"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${espressoVersion}"
+    kaptAndroidTest "com.google.dagger:dagger-compiler:${daggerVersion}"
 }
 
 // Usado pelo Dagger
