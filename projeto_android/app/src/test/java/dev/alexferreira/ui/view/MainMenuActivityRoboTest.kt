@@ -1,31 +1,48 @@
 package dev.alexferreira.ui.view
 
-import android.content.Context
-import android.content.Intent
-import dev.alexferreira.application.RoboApp
+import android.support.v7.widget.GridLayoutManager
+import android.support.v7.widget.RecyclerView
+import dev.alexferreira.R
 import dev.alexferreira.ui.contract.MainMenuContract
+import org.hamcrest.Matchers
+import org.junit.Assert
 import org.junit.Before
-import org.junit.runner.RunWith
-import org.mockito.Mock
-import org.mockito.MockitoAnnotations
-import org.robolectric.Robolectric
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
+import org.junit.Test
+import org.mockito.Mockito
 
-@RunWith(RobolectricTestRunner::class)
-@Config(application = RoboApp::class)
-class MainMenuActivityRoboTest {
-    private lateinit var intent: Intent
-    @Mock
-    private lateinit var context: Context
 
-    private lateinit var presenter: MainMenuContract.Presenter
-    private lateinit var activity: MainMenuActivity
+class MainMenuActivityRoboTest :
+    AbstractRoboTest<MainMenuActivity, MainMenuContract.View, MainMenuContract.Presenter>(MainMenuActivity::class.java) {
 
     @Before
-    fun setUp() {
-        MockitoAnnotations.initMocks(this)
-        activity = Robolectric.buildActivity(MainMenuActivity::class.java).create().start().get()
-        presenter = activity.presenter
+    override fun setUp() {
+        super.setUp()
+        startMenuList()
+    }
+
+    @Test
+    fun selectMenuItem_callPresenter() {
+        val recyclerView = activity.findViewById<RecyclerView>(R.id.recyclerView)
+        initRecyclerViewLenght(recyclerView)
+        val viewHolder = recyclerView.findViewHolderForLayoutPosition(0)!!
+        viewHolder.itemView.performClick()
+
+        Mockito.verify(presenter).selectMenuItem()
+    }
+
+    @Test
+    fun initMenuAdapterList() {
+        val recyclerView = activity.findViewById<RecyclerView>(R.id.recyclerView)
+
+        Assert.assertNotNull(recyclerView.adapter)
+        Assert.assertNotNull(recyclerView.layoutManager)
+        Assert.assertThat(
+            recyclerView.layoutManager!!.javaClass.name,
+            Matchers.`is`(GridLayoutManager::class.java.name)
+        )
+    }
+
+    private fun startMenuList() {
+        view.initAdapter()
     }
 }

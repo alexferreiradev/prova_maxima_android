@@ -2,6 +2,7 @@ package dev.alexferreira.ui.view
 
 import android.content.Context
 import android.content.Intent
+import android.support.v7.widget.RecyclerView
 import dev.alexferreira.application.RoboApp
 import dev.alexferreira.ui.contract.IPresenter
 import dev.alexferreira.ui.contract.IView
@@ -29,7 +30,7 @@ abstract class AbstractRoboTest<A : AbstractView<V, P>, V : IView, P : IPresente
 
     @Suppress("UNCHECKED_CAST")
     @Before
-    fun setUp() {
+    open fun setUp() {
         MockitoAnnotations.initMocks(this)
         activity = Robolectric.buildActivity(actClass).create().start().get()
         presenter = activity.presenter
@@ -58,5 +59,10 @@ abstract class AbstractRoboTest<A : AbstractView<V, P>, V : IView, P : IPresente
     @Test
     fun onViewStarted_callPresenter() {
         Mockito.verify(presenter).onViewStarted(activity.intent)
+    }
+
+    protected fun initRecyclerViewLenght(recyclerView: RecyclerView) {
+        recyclerView.measure(0, 0)
+        recyclerView.layout(0, 0, 100, 10000)
     }
 }

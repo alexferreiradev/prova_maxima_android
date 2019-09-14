@@ -6,8 +6,13 @@ interface SplashContract {
 }
 
 interface MainMenuContract {
-    interface View : IView
-    interface Presenter : IPresenter<View>
+    interface View : IView {
+        fun initAdapter()
+    }
+
+    interface Presenter : IPresenter<View> {
+        fun selectMenuItem()
+    }
 }
 
 interface ClienteInfoContract {
