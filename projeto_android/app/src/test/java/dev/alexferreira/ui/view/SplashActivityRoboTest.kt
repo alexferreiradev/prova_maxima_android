@@ -8,6 +8,7 @@ import dev.alexferreira.application.RoboApp
 import dev.alexferreira.ui.contract.SplashContract
 import org.junit.Assert.assertNotNull
 import org.junit.Before
+import org.junit.Ignore
 import org.junit.Test
 import org.junit.runner.RunWith
 import org.mockito.Mock
@@ -35,14 +36,34 @@ class SplashActivityRoboTest {
     }
 
     @Test
-    fun whenCreate_callPresenter() {
-        Mockito.verify(presenter).onViewCreated(activity, activity.applicationContext, activity.intent)
-    }
-
-    @Test
     fun whenStart_showAppBackground() {
         val image = activity.findViewById<ImageView>(R.id.iv_background)
 
         assertNotNull(image)
+    }
+
+//    Teste de Abstract View +++++++++++++++++++++++++++++++++++++++++++++++++++++++
+
+    @Test
+    fun whenCreate_callPresenter() {
+        Mockito.verify(presenter).onViewCreated(activity, activity.applicationContext, activity.intent)
+    }
+
+    @Ignore("Não consegui fazer mock de destroy e pause")
+    @Test
+    fun onViewDestroyed_callPresenter() {
+        Mockito.verify(presenter).onViewDestroyed()
+    }
+
+    @Ignore("Não consegui fazer mock de destroy e pause")
+    @Test
+    fun onViewPaused_callPresenter() {
+        activity.finish()
+        Mockito.verify(presenter).onViewPaused()
+    }
+
+    @Test
+    fun onViewStarted_callPresenter() {
+        Mockito.verify(presenter).onViewStarted(activity.intent)
     }
 }

@@ -44,8 +44,13 @@ abstract class AbstractView<ViewType : IView, PresenterType : IPresenter<ViewTyp
         presenter.onViewStarted(intent)
     }
 
-    override fun onStop() {
-        super.onStop()
+    override fun onPause() {
+        super.onPause()
+        presenter.onViewPaused()
+    }
+
+    override fun onDestroy() {
+        super.onDestroy()
         presenter.onViewDestroyed()
     }
 
