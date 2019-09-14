@@ -1,7 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
                                              android:layout_width="match_parent"
                                              android:layout_height="match_parent">
     <android.support.v7.widget.RecyclerView android:layout_width="match_parent"
-                                            android:layout_height="match_parent"/>
+                                            android:layout_height="0dp"
+                                            app:layout_constraintBottom_toTopOf="@+id/tv_version"
+                                            android:layout_marginTop="8dp" app:layout_constraintTop_toTopOf="parent"/>
+
+    <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_version" app:layout_constraintStart_toStartOf="parent"
+            tools:text="v.1.0.0"
+            app:layout_constraintHorizontal_chainStyle="packed"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/iv_internet_status" android:layout_marginBottom="8dp"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/iv_net_status_h" app:srcCompat="@drawable/ic_maxima_nuvem_desconectado"
+            android:id="@+id/iv_internet_status"
+            app:layout_constraintStart_toEndOf="@+id/tv_version"
+            app:layout_constraintEnd_toEndOf="parent" android:layout_marginEnd="8dp"
+            android:layout_marginRight="8dp" app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginBottom="8dp" app:layout_constraintBottom_toBottomOf="parent"
+            android:contentDescription="@string/cd_net_status"
+    />
 </android.support.constraint.ConstraintLayout>

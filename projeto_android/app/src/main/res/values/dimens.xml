@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="iv_net_status_h">20dp</dimen>
+    <dimen name="main_menu_padding">48dp</dimen>
+    <dimen name="iv_main_menu_h">48dp</dimen>
+    <dimen name="iv_empty_icon_h">148dp</dimen>
+</resources>
