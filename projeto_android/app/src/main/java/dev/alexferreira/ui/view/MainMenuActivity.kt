@@ -6,6 +6,10 @@ import dev.alexferreira.ui.contract.MainMenuContract
 
 class MainMenuActivity : AbstractView<MainMenuContract.View, MainMenuContract.Presenter>(), MainMenuContract.View {
 
+    override fun initAdapter() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)

@@ -19,4 +19,8 @@
     <string name="cd_legenda_pedido_icon">imagem representa icone de legenda de pedido</string>
     <string name="cd_icon_main_menu">icone de menu</string>
     <string name="verifify_status_cliente_bt">Verificar status do cliente</string>
+
+    <string name="dados_cliente_menu_item_title">Dados</string>
+    <string name="hitorico_dados_cliente_menu_item_title">Historico</string>
+    <string name="alvara_dados_cliente_menu_item_title">Alvará</string>
 </resources>
