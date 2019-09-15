@@ -7,18 +7,12 @@ import android.view.View
 import android.widget.Button
 import android.widget.TextView
 import dev.alexferreira.R
-import dev.alexferreira.application.RoboApp
 import dev.alexferreira.ui.contract.DadosClienteContract
 import org.jetbrains.anko.find
 import org.junit.Assert
 import org.junit.Test
-import org.junit.runner.RunWith
 import org.mockito.Mockito
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
-@RunWith(RobolectricTestRunner::class)
-@Config(application = RoboApp::class)
 class DadosClienteFragmentRoboTest :
     AbstractFragmentRoboTest<DadosClienteFragment, DadosClienteContract.DadosClienteFragContract.FragView
             , DadosClienteContract.DadosClienteFragContract.FragPresenter>(
@@ -49,7 +43,7 @@ class DadosClienteFragmentRoboTest :
     }
 
     @Test
-    fun contract_showListView_createAdapter() {
+    fun contract_showListView_changeVisibility() {
         contract.showListView()
 
         val recyclerView = fragment.view!!.find<RecyclerView>(R.id.recyclerView)
@@ -59,7 +53,7 @@ class DadosClienteFragmentRoboTest :
     }
 
     @Test
-    fun contract_showEmptyLayout_createAdapter() {
+    fun contract_showEmptyLayout_changeVisibility() {
         contract.showEmptyLayout()
 
         val recyclerView = fragment.view!!.find<RecyclerView>(R.id.recyclerView)

@@ -9,6 +9,7 @@ import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import dev.alexferreira.application.RoboApp
 import dev.alexferreira.data.model.Cliente
+import dev.alexferreira.data.model.PedidoCliente
 import dev.alexferreira.ui.contract.IFragmentPresenter
 import dev.alexferreira.ui.contract.IFragmentView
 import dev.alexferreira.ui.view.DadosClienteActivity
@@ -37,6 +38,8 @@ abstract class AbstractFragmentRoboTest<F : AbstractFragment<V, P>, V : IFragmen
 
     @Mock
     protected lateinit var fakeUser: Cliente
+    @Mock
+    protected lateinit var fakePedidoCliente: PedidoCliente
 
     // Pois não estou utilizando o android x
     @Suppress("UNCHECKED_CAST", "DEPRECATION")

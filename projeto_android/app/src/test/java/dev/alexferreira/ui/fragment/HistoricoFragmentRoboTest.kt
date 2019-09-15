@@ -1,30 +1,62 @@
 package dev.alexferreira.ui.fragment
 
-import android.support.constraint.ConstraintLayout
+import android.support.v7.widget.RecyclerView
 import android.view.View
+import android.widget.TextView
 import dev.alexferreira.R
-import dev.alexferreira.application.RoboApp
+import dev.alexferreira.data.model.PedidoCliente
 import dev.alexferreira.ui.contract.DadosClienteContract
 import org.jetbrains.anko.find
 import org.junit.Assert
+import org.junit.Ignore
 import org.junit.Test
-import org.junit.runner.RunWith
-import org.robolectric.RobolectricTestRunner
-import org.robolectric.annotation.Config
 
-@RunWith(RobolectricTestRunner::class)
-@Config(application = RoboApp::class)
 class HistoricoFragmentRoboTest :
-    AbstractFragmentRoboTest<AlvaraFragment, DadosClienteContract.AlvaraContract.FragView
-            , DadosClienteContract.AlvaraContract.FragPresenter>(
-        AlvaraFragment.newInstance("1")
+    AbstractFragmentRoboTest<HistoricoPedidoFragment, DadosClienteContract.HistoricoPedidoContract.FragView
+            , DadosClienteContract.HistoricoPedidoContract.FragPresenter>(
+        HistoricoPedidoFragment.newInstance("1")
     ) {
 
     @Test
-    fun contract_showEmptyLayout_showEmpty() {
-        contract.showEmptyLayout()
+    fun contract_setHasMenu_true() {
+        contract.setHasOptionMenu(true)
+        Assert.assertTrue("Não foi setado has menu", fragment.hasOptionsMenu())
+    }
 
-        val constraintLayout = fragment.view!!.find<ConstraintLayout>(R.id.empty_layout)
-        Assert.assertEquals("Empty não esta visivel", View.VISIBLE, constraintLayout.visibility)
+    @Test
+    fun contract_showEmptyView_changeVisibility() {
+        contract.showEmptyView()
+
+        val textView = fragment.view!!.find<TextView>(R.id.tv_empty)
+        Assert.assertEquals("Empty não esta visivel", View.VISIBLE, textView.visibility)
+        val recyclerView = fragment.view!!.find<RecyclerView>(R.id.recyclerView)
+        Assert.assertEquals(View.GONE, recyclerView.visibility)
+    }
+
+    @Test
+    fun contract_showListView_changeVisibility() {
+        contract.showListView()
+
+        val recyclerView = fragment.view!!.find<RecyclerView>(R.id.recyclerView)
+        Assert.assertEquals(View.VISIBLE, recyclerView.visibility)
+        val emptyText = fragment.view!!.find<TextView>(R.id.tv_empty)
+        Assert.assertEquals(View.GONE, emptyText.visibility)
+    }
+
+    @Test
+    fun contract_initDados_createAdapter() {
+        val fakeList = ArrayList<PedidoCliente>()
+        fakeList.add(fakePedidoCliente)
+        contract.initListView(fakeList)
+
+        val recyclerView = fragment.view!!.find<RecyclerView>(R.id.recyclerView)
+        Assert.assertNotNull(recyclerView.adapter)
+    }
+
+    @Ignore("Nao consegui simular click de menu de fragment")
+    @Test
+    fun selectMenu_legenda_callPresenter() {
+//        val shadowOfFrag = Shadows.shadowOf(fragment)
+//        shadowOfFrag.click
     }
 }
