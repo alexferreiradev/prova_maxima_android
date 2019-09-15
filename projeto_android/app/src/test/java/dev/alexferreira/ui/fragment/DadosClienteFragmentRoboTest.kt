@@ -16,7 +16,8 @@ import org.robolectric.annotation.Config
 @RunWith(RobolectricTestRunner::class)
 @Config(application = RoboApp::class)
 class DadosClienteFragmentRoboTest :
-    AbstractFragmentRoboTest<DadosClienteFragment, DadosClienteContract.DadosClienteFragContract.FragView, DadosClienteContract.DadosClienteFragContract.FragPresenter>(
+    AbstractFragmentRoboTest<DadosClienteFragment, DadosClienteContract.DadosClienteFragContract.FragView
+            , DadosClienteContract.DadosClienteFragContract.FragPresenter>(
         DadosClienteFragment.newInstance("1")
     ) {
 

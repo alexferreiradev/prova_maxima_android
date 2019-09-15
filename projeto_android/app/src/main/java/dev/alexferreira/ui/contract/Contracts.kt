@@ -36,6 +36,9 @@ interface DadosClienteContract {
     interface DadosClienteFragContract {
         interface FragView : IFragmentView, SubView {
             fun showSnackBarMsg(msg: String)
+            fun showEmptyLayout()
+            fun showListView()
+            fun initDadosList(model: Cliente)
         }
 
         interface FragPresenter : IFragmentPresenter<FragView> {

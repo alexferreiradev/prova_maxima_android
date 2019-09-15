@@ -8,6 +8,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import dev.alexferreira.R
+import dev.alexferreira.data.model.Cliente
 import dev.alexferreira.ui.contract.DadosClienteContract
 import dev.alexferreira.ui.presenter.fragment.DadosClienteFragPresenter
 import kotlinx.android.synthetic.main.fragment_dados_cliente.*
@@ -35,6 +36,18 @@ class DadosClienteFragment : AbstractFragment<DadosClienteContract.DadosClienteF
         bt_verify_estado_cliente.setOnClickListener {
             presenter.selectVerifyEstadoCliente()
         }
+    }
+
+    override fun showEmptyLayout() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun showListView() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun initDadosList(model: Cliente) {
+        TODO("Tnot implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun showSnackBarMsg(msg: String) {

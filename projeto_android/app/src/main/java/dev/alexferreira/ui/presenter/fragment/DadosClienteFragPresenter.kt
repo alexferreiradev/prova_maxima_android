@@ -2,14 +2,17 @@ package dev.alexferreira.ui.presenter.fragment
 
 import android.os.Bundle
 import dev.alexferreira.data.model.Cliente
+import dev.alexferreira.data.repository.IClienteRepository
 import dev.alexferreira.injection.scope.FragmentScope
 import dev.alexferreira.ui.contract.DadosClienteContract
+import dev.alexferreira.ui.task.LoadClienteTask
+import dev.alexferreira.ui.task.generic.TaskCallback
 import java.text.DateFormat
 import java.util.*
 import javax.inject.Inject
 
 @FragmentScope
-class DadosClienteFragPresenter @Inject constructor() :
+class DadosClienteFragPresenter @Inject constructor(val cliRepo: IClienteRepository) :
     AbstractFragPresenter<DadosClienteContract.DadosClienteFragContract.FragView>(),
     DadosClienteContract.DadosClienteFragContract.FragPresenter {
 
@@ -28,6 +31,22 @@ class DadosClienteFragPresenter @Inject constructor() :
         args?.let {
             clientId = it.getString(ARG_CLIENTE_ID)!!
         }
+
+        LoadClienteTask(object : TaskCallback<Cliente> {
+            override fun onEmpty() {
+                view.hideProgressBar()
+
+                view.showEmptyLayout()
+            }
+
+            override fun onSuccessResult(model: Cliente) {
+                view.hideProgressBar()
+
+                currentCliente = model
+                view.initDadosList(model)
+                view.showListView()
+            }
+        }, cliRepo).execute(clientId)
     }
 
     companion object {
