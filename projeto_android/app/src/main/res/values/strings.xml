@@ -26,4 +26,6 @@
     <string name="dados_cliente_main_menu_title">Clientes</string>
     <string name="unknow_main_menu_error">Menu clicado não ativo</string>
     <string name="close_snack_action">Fechar</string>
+    <string name="tvempty_cliente">Cliente não foi encontrado</string>
+    <string name="legenda_hisotrico_pedido_menu_title">Legendas</string>
 </resources>
