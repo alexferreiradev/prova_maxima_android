@@ -2,6 +2,7 @@ package dev.alexferreira.ui.contract
 
 import android.view.MenuItem
 import dev.alexferreira.data.model.Cliente
+import dev.alexferreira.data.model.PedidoCliente
 import dev.alexferreira.ui.model.MainMenuModel
 
 interface SplashContract {
@@ -47,7 +48,8 @@ interface DadosClienteContract {
     }
 
     interface HistoricoPedidoContract {
-        interface FragView : IFragmentView, SubView
+        interface FragView : IFragmentView, SubView, IListView<PedidoCliente>
+
         interface FragPresenter : IFragmentPresenter<FragView>
     }
 
