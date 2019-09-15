@@ -3,7 +3,8 @@ package dev.alexferreira.data.model
 import android.arch.persistence.room.TypeConverter
 
 enum class StatusCliente(val desc: String) {
-    INDEFINIDO("Indefinido");
+    INDEFINIDO("Indefinido"),
+    ATIVO("Ativo");
 
     companion object {
         @TypeConverter

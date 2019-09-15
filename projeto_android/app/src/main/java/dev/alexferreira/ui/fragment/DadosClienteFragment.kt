@@ -2,14 +2,15 @@ package dev.alexferreira.ui.fragment
 
 
 import android.os.Bundle
+import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import dev.alexferreira.R
-
-
-private const val ARG_CLIENTE_ID = "cliente_id"
+import dev.alexferreira.ui.contract.DadosClienteContract
+import dev.alexferreira.ui.presenter.fragment.DadosClienteFragPresenter
+import kotlinx.android.synthetic.main.fragment_dados_cliente.*
 
 /**
  * A simple [Fragment] subclass.
@@ -17,23 +18,30 @@ private const val ARG_CLIENTE_ID = "cliente_id"
  * create an instance of this fragment.
  *
  */
-class DadosClienteFragment : Fragment() {
-    private lateinit var clientId: String
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            clientId = it.getString(ARG_CLIENTE_ID)!!
-        }
-    }
+class DadosClienteFragment : AbstractFragment<DadosClienteContract.DadosClienteFragContract.FragView,
+        DadosClienteContract.DadosClienteFragContract.FragPresenter>(),
+    DadosClienteContract.DadosClienteFragContract.FragView {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         return inflater.inflate(R.layout.fragment_dados_cliente, container, false)
     }
 
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        bt_verify_estado_cliente.setOnClickListener {
+            presenter.selectVerifyEstadoCliente()
+        }
+    }
+
+    override fun showSnackBarMsg(msg: String) {
+        val snackbar = Snackbar.make(coordinatorLayout, msg, Snackbar.LENGTH_INDEFINITE)
+        snackbar.setAction(R.string.close_snack_action) { snackbar.dismiss() }
+        snackbar.show()
+    }
 
     companion object {
         /**
@@ -47,7 +55,7 @@ class DadosClienteFragment : Fragment() {
         fun newInstance(clienteId: String) =
             DadosClienteFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_CLIENTE_ID, clienteId)
+                    putString(DadosClienteFragPresenter.ARG_CLIENTE_ID, clienteId)
                 }
             }
     }

@@ -5,6 +5,7 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import dagger.android.support.AndroidSupportInjection
 import dev.alexferreira.data.model.Cliente
 import dev.alexferreira.ui.contract.IFragmentPresenter
 import dev.alexferreira.ui.contract.IFragmentView
@@ -15,6 +16,11 @@ abstract class AbstractFragment<V : IFragmentView, P : IFragmentPresenter<V>> : 
 
     @field:[Inject]
     lateinit var presenter: P
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        AndroidSupportInjection.inject(this)
+        super.onCreate(savedInstanceState)
+    }
 
     @Suppress("UNCHECKED_CAST")
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {

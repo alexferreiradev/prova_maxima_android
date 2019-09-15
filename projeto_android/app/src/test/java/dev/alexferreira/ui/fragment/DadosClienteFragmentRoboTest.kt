@@ -1,31 +1,37 @@
 package dev.alexferreira.ui.fragment
 
-import android.content.Context
+import android.support.design.widget.CoordinatorLayout
+import android.support.design.widget.Snackbar
+import android.widget.Button
+import dev.alexferreira.R
+import dev.alexferreira.application.RoboApp
 import dev.alexferreira.ui.contract.DadosClienteContract
-import dev.alexferreira.ui.view.DadosClienteActivity
-import org.junit.Before
+import org.junit.Assert
 import org.junit.Test
+import org.junit.runner.RunWith
 import org.mockito.Mockito
-import org.robolectric.RuntimeEnvironment
-import org.robolectric.shadows.support.v4.SupportFragmentTestUtil
+import org.robolectric.RobolectricTestRunner
+import org.robolectric.annotation.Config
 
-class DadosClienteFragmentRoboTest {
+@RunWith(RobolectricTestRunner::class)
+@Config(application = RoboApp::class)
+class DadosClienteFragmentRoboTest :
+    AbstractFragmentRoboTest<DadosClienteFragment, DadosClienteContract.DadosClienteFragContract.FragView, DadosClienteContract.DadosClienteFragContract.FragPresenter>(
+        DadosClienteFragment.newInstance("1")
+    ) {
 
-    private lateinit var fragment: DadosClienteFragment
-    private lateinit var contract: DadosClienteContract.DadosClienteContract.FragView
-    private lateinit var context: Context
-    private lateinit var presenter: DadosClienteContract.DadosClienteContract.FragPresenter
+    @Test
+    fun selecttVerifyStatus_callPresenter() {
+        fragment.view!!.findViewById<Button>(R.id.bt_verify_estado_cliente).performClick()
 
-    @Before
-    fun setUp() {
-        fragment = DadosClienteFragment.newInstance("1")
-        val fragClass = DadosClienteActivity::class.java
-        SupportFragmentTestUtil.startFragment(fragment, fragClass)
-        context = RuntimeEnvironment.systemContext
+        Mockito.verify(presenter).selectVerifyEstadoCliente()
     }
 
     @Test
-    fun contract_create_callPresenter() {
-        Mockito.verify(presenter).onViewCreated(contract, context, null)
+    fun contract_showSnackbar() {
+        contract.showSnackBarMsg("Teste")
+
+        val snackBar = (fragment.view!! as CoordinatorLayout).getChildAt(1) as Snackbar.SnackbarLayout
+        Assert.assertNotNull(snackBar)
     }
 }

@@ -33,8 +33,11 @@ interface DadosClienteContract {
 
     interface SubView
 
-    interface DadosClienteContract {
-        interface FragView : IFragmentView, SubView
+    interface DadosClienteFragContract {
+        interface FragView : IFragmentView, SubView {
+            fun showSnackBarMsg(msg: String)
+        }
+
         interface FragPresenter : IFragmentPresenter<FragView> {
             fun selectVerifyEstadoCliente()
         }

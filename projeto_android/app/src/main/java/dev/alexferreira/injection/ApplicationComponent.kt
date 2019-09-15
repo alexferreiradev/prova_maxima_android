@@ -8,10 +8,12 @@ import dagger.android.AndroidInjector
 import dev.alexferreira.application.AppApplication
 import dev.alexferreira.injection.scope.ApplicationScope
 import dev.alexferreira.injection.ui.ActivityBuilder
+import dev.alexferreira.injection.ui.FragmentBuilder
 
 @ApplicationScope
 @Component(
-    modules = [ActivityBuilder::class
+    modules = [ActivityBuilder::class,
+        FragmentBuilder::class
 //        modules = [ActivityBuilder::class,
 //            RepositoryModule::class]
     ]

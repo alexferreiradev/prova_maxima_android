@@ -74,6 +74,7 @@ class DadosClienteActivityRoboTest :
         view.setViewPagerPos(viewPagerPos)
 
         Assert.assertThat(viewPager.currentItem, Matchers.`is`(viewPagerPos))
+        // Erro esta ocrrendo, deve testar no dispositivo se esta ok
     }
 
     //    @Before

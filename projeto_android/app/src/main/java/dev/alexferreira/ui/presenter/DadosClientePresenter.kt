@@ -2,11 +2,13 @@ package dev.alexferreira.ui.presenter
 
 import android.view.MenuItem
 import dev.alexferreira.R
+import dev.alexferreira.injection.scope.ActivityScope
 import dev.alexferreira.ui.adapter.DadosClienteViewPagerAdapter
 import dev.alexferreira.ui.contract.DadosClienteContract
 import timber.log.Timber
 import javax.inject.Inject
 
+@ActivityScope
 class DadosClientePresenter @Inject constructor() : AbstractPresenter<DadosClienteContract.View>(),
     DadosClienteContract.Presenter {
 

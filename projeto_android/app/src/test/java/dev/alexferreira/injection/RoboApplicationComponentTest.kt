@@ -8,9 +8,10 @@ import dagger.android.AndroidInjector
 import dev.alexferreira.application.RoboApp
 import dev.alexferreira.injection.scope.ApplicationScope
 import dev.alexferreira.injection.ui.FakeActivityBuilder
+import dev.alexferreira.injection.ui.FakeFragmentBuilder
 
 @ApplicationScope
-@Component(modules = [FakeActivityBuilder::class])
+@Component(modules = [FakeActivityBuilder::class, FakeFragmentBuilder::class])
 interface RoboApplicationComponentTest : AndroidInjector<RoboApp> {
     @Component.Builder
     interface Builder {

@@ -25,4 +25,5 @@
     <string name="alvara_dados_cliente_menu_item_title">Alvará</string>
     <string name="dados_cliente_main_menu_title">Clientes</string>
     <string name="unknow_main_menu_error">Menu clicado não ativo</string>
+    <string name="close_snack_action">Fechar</string>
 </resources>
