@@ -12,7 +12,6 @@ import java.util.regex.Pattern
 class DadosClienteFragPresenterTest : AbstractFragPresenterTest<
         DadosClienteContract.DadosClienteFragContract.FragView, DadosClienteContract.DadosClienteFragContract.FragPresenter,
         DadosClienteFragPresenter>(
-    DadosClienteFragPresenter::class.java,
     DadosClienteContract.DadosClienteFragContract.FragView::class.java
 ) {
 

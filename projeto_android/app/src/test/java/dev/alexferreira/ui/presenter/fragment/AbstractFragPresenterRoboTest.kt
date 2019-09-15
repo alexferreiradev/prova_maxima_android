@@ -2,13 +2,13 @@ package dev.alexferreira.ui.presenter.fragment
 
 import android.content.Context
 import android.os.Bundle
-import com.nhaarman.mockitokotlin2.any
 import dev.alexferreira.application.RoboApp
 import dev.alexferreira.data.model.Cliente
 import dev.alexferreira.data.repository.IClienteRepository
 import dev.alexferreira.ui.contract.IFragmentPresenter
 import dev.alexferreira.ui.contract.IFragmentView
 import dev.alexferreira.ui.contract.Navigator
+import dev.alexferreira.util.RepoTestUtil
 import org.junit.Before
 import org.junit.Test
 import org.junit.runner.RunWith
@@ -50,15 +50,11 @@ abstract class AbstractFragPresenterRoboTest<V : IFragmentView, P : IFragmentPre
         presenter = createPresenterInstance()
         contract = presenter as P
         initMockView()
-        initMockRepo()
+        RepoTestUtil.initCliMockRepo(cliRepo, fakeCliente)
         contract.onViewCreated(view, context, args)
     }
 
     abstract fun createPresenterInstance(): C
-
-    private fun initMockRepo() {
-        Mockito.`when`(cliRepo.getCliente(any())).thenReturn(fakeCliente)
-    }
 
     private fun initMockView() {
         Mockito.`when`(view.getNavigator()).thenReturn(navigator)

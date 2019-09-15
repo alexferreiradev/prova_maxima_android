@@ -26,7 +26,7 @@ abstract class AbstractFragment<V : IFragmentView, P : IFragmentPresenter<V>> : 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         val view = this as V
-        presenter.onViewCreated(view, context!!, arguments)
+        presenter.onViewCreated(view, requireContext(), arguments)
 
         return null
     }
