@@ -6,10 +6,11 @@ import dagger.android.AndroidInjection
 import dev.alexferreira.data.model.Cliente
 import dev.alexferreira.ui.contract.IPresenter
 import dev.alexferreira.ui.contract.IView
+import dev.alexferreira.ui.contract.Navigator
 import javax.inject.Inject
 
 abstract class AbstractView<ViewType : IView, PresenterType : IPresenter<ViewType>> : AppCompatActivity(),
-    IView {
+    IView, Navigator {
     @field:[Inject]
     lateinit var presenter: PresenterType
     lateinit var view: ViewType
@@ -69,6 +70,10 @@ abstract class AbstractView<ViewType : IView, PresenterType : IPresenter<ViewTyp
 
     override fun hideProgressBar() {
 //        ViewHelper.hideView(progress_bar)
+    }
+
+    override fun getNavigator(): Navigator {
+        return this
     }
 
     override fun openMainMenuView() {

@@ -10,6 +10,6 @@ class SplashPresenter @Inject constructor() : AbstractPresenter<SplashContract.V
 
     override fun onViewStarted(intent: Intent?) {
         super.onViewStarted(intent)
-        view.openMainMenuView()
+        view.getNavigator().openMainMenuView()
     }
 }
