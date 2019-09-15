@@ -8,7 +8,7 @@ class SplashPresenterTest : AbstractPresenterTest<SplashContract.View, SplashCon
 
     @Test
     internal fun whenStarted_callNav() {
-        presenter.onViewStarted(null)
+        contract.onViewStarted(null)
 
         Mockito.verify(view).openMainMenuView()
     }
