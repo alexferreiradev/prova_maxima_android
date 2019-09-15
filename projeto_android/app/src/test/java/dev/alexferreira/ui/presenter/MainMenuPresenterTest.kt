@@ -12,7 +12,7 @@ class MainMenuPresenterTest :
     fun contract_selectMenuItem_callView() {
         contract.selectMenuItem()
 
-        val cliente = Cliente()
-        Mockito.verify(view).openDadosClienteView(cliente)
+        Mockito.verify(view).getNavigator()
+        Mockito.verify(navigator).openDadosClienteView(any())
     }
 }
