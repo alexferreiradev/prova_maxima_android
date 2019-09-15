@@ -52,8 +52,11 @@ interface DadosClienteContract {
     }
 
     interface AlvaraContract {
-        interface FragView : IView, SubView
-        interface FragPresenter : IPresenter<FragView>
+        interface FragView : IFragmentView, SubView {
+            fun showEmptyLayout()
+        }
+
+        interface FragPresenter : IFragmentPresenter<FragView>
     }
 
 }

@@ -13,4 +13,16 @@ class FakePresenterFragModule {
     fun provideDadosClienteFragPresenter(): DadosClienteContract.DadosClienteFragContract.FragPresenter {
         return mock()
     }
+
+    @FragmentScope
+    @Provides
+    fun provideHistoricoPedidoPresenter(): DadosClienteContract.HistoricoPedidoContract.FragPresenter {
+        return mock()
+    }
+
+    @FragmentScope
+    @Provides
+    fun provideAlvaraContractPresenter(): DadosClienteContract.AlvaraContract.FragPresenter {
+        return mock()
+    }
 }

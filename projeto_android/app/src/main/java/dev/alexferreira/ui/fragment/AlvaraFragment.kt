@@ -7,9 +7,11 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import dev.alexferreira.R
+import dev.alexferreira.helper.ViewHelper
+import dev.alexferreira.ui.contract.DadosClienteContract
+import dev.alexferreira.ui.presenter.fragment.AlvaraFragPresenter
+import kotlinx.android.synthetic.main.fragment_alvara.*
 
-
-private const val ARG_CLIENTE_ID = "cliente_id"
 
 /**
  * A simple [Fragment] subclass.
@@ -17,23 +19,21 @@ private const val ARG_CLIENTE_ID = "cliente_id"
  * create an instance of this fragment.
  *
  */
-class AlvaraFragment : Fragment() {
-    private lateinit var clienteId: String
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            clienteId = it.getString(ARG_CLIENTE_ID)!!
-        }
-    }
+class AlvaraFragment :
+    AbstractFragment<DadosClienteContract.AlvaraContract.FragView, DadosClienteContract.AlvaraContract.FragPresenter>(),
+    DadosClienteContract.AlvaraContract.FragView {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        super.onCreateView(inflater, container, savedInstanceState)
         return inflater.inflate(R.layout.fragment_alvara, container, false)
     }
 
+    override fun showEmptyLayout() {
+        ViewHelper.showFirstHideSecond(empty_layout, recyclerView)
+    }
 
     companion object {
         /**
@@ -44,9 +44,9 @@ class AlvaraFragment : Fragment() {
          */
         @JvmStatic
         fun newInstance(clienteId: String) =
-            DadosClienteFragment().apply {
+            AlvaraFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_CLIENTE_ID, clienteId)
+                    putString(AlvaraFragPresenter.ARG_CLIENTE_ID, clienteId)
                 }
             }
     }
