@@ -23,4 +23,6 @@
     <string name="dados_cliente_menu_item_title">Dados</string>
     <string name="hitorico_dados_cliente_menu_item_title">Historico</string>
     <string name="alvara_dados_cliente_menu_item_title">Alvará</string>
+    <string name="dados_cliente_main_menu_title">Clientes</string>
+    <string name="unknow_main_menu_error">Menu clicado não ativo</string>
 </resources>

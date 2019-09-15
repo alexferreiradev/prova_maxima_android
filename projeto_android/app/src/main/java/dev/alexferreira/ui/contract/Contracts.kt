@@ -1,6 +1,7 @@
 package dev.alexferreira.ui.contract
 
 import android.view.MenuItem
+import dev.alexferreira.ui.model.MainMenuModel
 
 interface SplashContract {
     interface View : IView
@@ -9,11 +10,11 @@ interface SplashContract {
 
 interface MainMenuContract {
     interface View : IView {
-        fun initAdapter()
+        fun initAdapter(menuList: MutableList<MainMenuModel>)
     }
 
     interface Presenter : IPresenter<View> {
-        fun selectMenuItem()
+        fun selectMenuItem(menuItem: MainMenuModel)
     }
 }
 

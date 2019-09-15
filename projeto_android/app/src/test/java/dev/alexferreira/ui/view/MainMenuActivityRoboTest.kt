@@ -2,8 +2,10 @@ package dev.alexferreira.ui.view
 
 import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
+import com.nhaarman.mockitokotlin2.any
 import dev.alexferreira.R
 import dev.alexferreira.ui.contract.MainMenuContract
+import dev.alexferreira.ui.model.MainMenuModel
 import org.hamcrest.Matchers
 import org.junit.Assert
 import org.junit.Before
@@ -27,11 +29,13 @@ class MainMenuActivityRoboTest :
         val viewHolder = recyclerView.findViewHolderForLayoutPosition(0)!!
         viewHolder.itemView.performClick()
 
-        Mockito.verify(presenter).selectMenuItem()
+        Mockito.verify(presenter).selectMenuItem(any())
     }
 
     @Test
-    fun initMenuAdapterList() {
+    fun contract_initMenuAdapterList_startRecycler() {
+        // a chamada para o contract é feita no setup
+
         val recyclerView = activity.findViewById<RecyclerView>(R.id.recyclerView)
 
         Assert.assertNotNull(recyclerView.adapter)
@@ -43,6 +47,12 @@ class MainMenuActivityRoboTest :
     }
 
     private fun startMenuList() {
-        view.initAdapter()
+        val menuList = ArrayList<MainMenuModel>()
+        menuList.add(MainMenuModel(R.drawable.ic_maxima_pessoa, "Clientes"))
+        menuList.add(MainMenuModel(R.drawable.ic_maxima_pessoa, "Clientes"))
+        menuList.add(MainMenuModel(R.drawable.ic_maxima_pessoa, "Clientes"))
+        menuList.add(MainMenuModel(R.drawable.ic_maxima_pessoa, "Clientes"))
+
+        view.initAdapter(menuList)
     }
 }
