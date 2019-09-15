@@ -1,11 +1,11 @@
 package dev.alexferreira.ui.contract
 
 import android.content.Context
-import android.content.Intent
+import android.os.Bundle
 
 interface IFragmentPresenter<ViewType> {
-    fun onViewCreated(view: ViewType, context: Context, intent: Intent?)
-    fun onViewStarted(intent: Intent?)
+    fun onViewCreated(view: ViewType, context: Context, args: Bundle?)
+    fun onViewStarted(args: Bundle?)
     fun onViewPaused()
     fun onViewDestroyed()
 }

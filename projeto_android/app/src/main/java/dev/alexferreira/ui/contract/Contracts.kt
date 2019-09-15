@@ -35,19 +35,19 @@ interface DadosClienteContract {
 
     interface DadosClienteContract {
         interface FragView : IFragmentView, SubView
-        interface FragPresenter : IFragmentPresenter<IFragmentView> {
+        interface FragPresenter : IFragmentPresenter<FragView> {
             fun selectVerifyEstadoCliente()
         }
     }
 
     interface HistoricoPedidoContract {
         interface FragView : IFragmentView, SubView
-        interface FragPresenter : IFragmentPresenter<IFragmentView>
+        interface FragPresenter : IFragmentPresenter<FragView>
     }
 
     interface AlvaraContract {
         interface FragView : IView, SubView
-        interface FragPresenter : IPresenter<View>
+        interface FragPresenter : IPresenter<FragView>
     }
 
 }
