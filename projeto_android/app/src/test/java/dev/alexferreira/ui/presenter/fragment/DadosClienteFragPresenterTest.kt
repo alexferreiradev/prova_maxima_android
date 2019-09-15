@@ -22,13 +22,17 @@ class DadosClienteFragPresenterTest : AbstractFragPresenterTest<
         Mockito.`when`(presenter.currentCliente.status).thenReturn(StatusCliente.INDEFINIDO)
         Mockito.`when`(view.showSnackBarMsg(any())).thenAnswer {
             val msg = it.arguments[0] as String
-            val compile = Pattern.compile("\\d{2}/\\d{2}/\\d{2} \\d{2}:\\d{2} - Indefinido")
+            val compile = Pattern.compile("\\d{1,2}/\\d{1,2}/\\d{2} \\d{1,2}:\\d{1,2}( (PM|AM))? - Indefinido")
             val matcher = compile.matcher(msg)
-            Assert.assertTrue(matcher.find())
+            Assert.assertTrue("Não encontrado padrao em: $msg", matcher.find())
         }
 
         contract.selectVerifyEstadoCliente()
 
         Mockito.verify(view).showSnackBarMsg(any())
+    }
+
+    override fun createPresenterInstance(): DadosClienteFragPresenter {
+        return DadosClienteFragPresenter(cliRepo)
     }
 }
