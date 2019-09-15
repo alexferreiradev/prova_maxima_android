@@ -4,6 +4,7 @@ import com.nhaarman.mockitokotlin2.mock
 import dagger.Module
 import dagger.Provides
 import dev.alexferreira.injection.scope.ActivityScope
+import dev.alexferreira.ui.contract.DadosClienteContract
 import dev.alexferreira.ui.contract.MainMenuContract
 import dev.alexferreira.ui.contract.SplashContract
 
@@ -18,6 +19,12 @@ class FakePresenterModule {
     @ActivityScope
     @Provides
     fun provideMainMenuPresenter(): MainMenuContract.Presenter {
+        return mock()
+    }
+
+    @ActivityScope
+    @Provides
+    fun provideDadosClientePresenter(): DadosClienteContract.Presenter {
         return mock()
     }
 }

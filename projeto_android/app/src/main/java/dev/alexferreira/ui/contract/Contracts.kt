@@ -1,6 +1,7 @@
 package dev.alexferreira.ui.contract
 
 import android.view.MenuItem
+import dev.alexferreira.data.model.Cliente
 import dev.alexferreira.ui.model.MainMenuModel
 
 interface SplashContract {
@@ -20,12 +21,12 @@ interface MainMenuContract {
 
 interface DadosClienteContract {
     interface View : IView {
-        fun initViewPager()
+        fun initViewPager(cliente: Cliente)
         fun setViewPagerPos(pos: Int)
     }
 
     interface Presenter : IPresenter<View>, SharedView {
-        fun selectBottomNavItemMenu(menuItem: MenuItem)
+        fun selectBottomNavItemMenu(menuItem: MenuItem): Boolean
     }
 
     interface SharedView

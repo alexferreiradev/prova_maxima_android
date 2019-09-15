@@ -1,14 +1,18 @@
 package dev.alexferreira.ui.view
 
-import android.support.design.widget.BottomNavigationView
 import android.support.v4.view.ViewPager
+import android.view.MenuItem
+import com.nhaarman.mockitokotlin2.any
+import com.nhaarman.mockitokotlin2.mock
 import dev.alexferreira.R
+import dev.alexferreira.data.model.Cliente
 import dev.alexferreira.ui.contract.DadosClienteContract
 import org.hamcrest.Matchers
 import org.jetbrains.anko.find
 import org.junit.Assert
 import org.junit.Test
 import org.mockito.Mockito
+import org.robolectric.Shadows
 
 
 class DadosClienteActivityRoboTest :
@@ -17,7 +21,9 @@ class DadosClienteActivityRoboTest :
     ) {
     @Test
     fun initFragmentView() {
-        view.initViewPager()
+        val cli = mock<Cliente>()
+        Mockito.`when`(cli.id).thenReturn(1L)
+        view.initViewPager(cli)
 
         val viewPager = activity.find<ViewPager>(R.id.viewPager)
 
@@ -26,37 +32,47 @@ class DadosClienteActivityRoboTest :
 
     @Test
     fun selectBottomNav_dados_callPresenter() {
-        val bottomNavigationView = activity.find<BottomNavigationView>(R.id.bottomNavigationView)
-        val menuItem = bottomNavigationView.menu.findItem(R.id.dados_cliente_menu_item)
-        menuItem.actionView.performClick()
+        Mockito.`when`(presenter.selectBottomNavItemMenu(any())).thenAnswer {
+            val menuItem = it.arguments[0] as MenuItem
+            Assert.assertEquals(R.id.dados_cliente_menu_item, menuItem.itemId)
+            true
+        }
+        Shadows.shadowOf(activity).clickMenuItem(R.id.dados_cliente_menu_item)
 
-        Mockito.verify(presenter).selectBottomNavItemMenu(menuItem)
+        Mockito.verify(presenter).selectBottomNavItemMenu(any())
     }
 
     @Test
     fun selectBottomNav_historico_callPresenter() {
-        val bottomNavigationView = activity.find<BottomNavigationView>(R.id.bottomNavigationView)
-        val menuItem = bottomNavigationView.menu.findItem(R.id.historico_dados_cliente_menu_item)
-        menuItem.actionView.performClick()
+        Mockito.`when`(presenter.selectBottomNavItemMenu(any())).thenAnswer {
+            val menuItem = it.arguments[0] as MenuItem
+            Assert.assertEquals(R.id.historico_dados_cliente_menu_item, menuItem.itemId)
+            true
+        }
+        Shadows.shadowOf(activity).clickMenuItem(R.id.historico_dados_cliente_menu_item)
 
-        Mockito.verify(presenter).selectBottomNavItemMenu(menuItem)
+        Mockito.verify(presenter).selectBottomNavItemMenu(any())
     }
 
     @Test
     fun selectBottomNav_alvara_callPresenter() {
-        val bottomNavigationView = activity.find<BottomNavigationView>(R.id.bottomNavigationView)
-        val menuItem = bottomNavigationView.menu.findItem(R.id.alvara_dados_cliente_menu_item)
-        menuItem.actionView.performClick()
+        Mockito.`when`(presenter.selectBottomNavItemMenu(any())).thenAnswer {
+            val menuItem = it.arguments[0] as MenuItem
+            Assert.assertEquals(R.id.alvara_dados_cliente_menu_item, menuItem.itemId)
+            true
+        }
+        Shadows.shadowOf(activity).clickMenuItem(R.id.alvara_dados_cliente_menu_item)
 
-        Mockito.verify(presenter).selectBottomNavItemMenu(menuItem)
+        Mockito.verify(presenter).selectBottomNavItemMenu(any())
     }
 
     @Test
     fun selectViewPagerPos() {
         val viewPagerPos = 1
-        view.setViewPagerPos(viewPagerPos)
 
         val viewPager = activity.find<ViewPager>(R.id.viewPager)
+        view.setViewPagerPos(viewPagerPos)
+
         Assert.assertThat(viewPager.currentItem, Matchers.`is`(viewPagerPos))
     }
 
