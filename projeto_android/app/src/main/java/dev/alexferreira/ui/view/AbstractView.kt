@@ -3,6 +3,7 @@ package dev.alexferreira.ui.view
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import dagger.android.AndroidInjection
+import dev.alexferreira.data.model.Cliente
 import dev.alexferreira.ui.contract.IPresenter
 import dev.alexferreira.ui.contract.IView
 import javax.inject.Inject
@@ -71,6 +72,10 @@ abstract class AbstractView<ViewType : IView, PresenterType : IPresenter<ViewTyp
     }
 
     override fun openMainMenuView() {
+        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    }
+
+    override fun openDadosClienteView(cliente: Cliente) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 }
