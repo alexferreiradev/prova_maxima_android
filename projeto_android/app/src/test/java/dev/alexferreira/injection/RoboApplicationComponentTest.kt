@@ -7,6 +7,7 @@ import dagger.Component
 import dagger.android.AndroidInjector
 import dev.alexferreira.application.RoboApp
 import dev.alexferreira.data.repository.IClienteRepository
+import dev.alexferreira.data.repository.IPedidoClienteRepository
 import dev.alexferreira.injection.data.FakeRepositoryModule
 import dev.alexferreira.injection.scope.ApplicationScope
 import dev.alexferreira.injection.ui.FakeActivityBuilder
@@ -17,6 +18,7 @@ import dev.alexferreira.injection.ui.FakeFragmentBuilder
 interface RoboApplicationComponentTest : AndroidInjector<RoboApp> {
 
     fun clienteRepo(): IClienteRepository
+    fun pedidoClienteRepo(): IPedidoClienteRepository
 
     @Component.Builder
     interface Builder {
