@@ -4,11 +4,13 @@ package dev.alexferreira.ui.fragment
 import android.os.Bundle
 import android.support.design.widget.Snackbar
 import android.support.v4.app.Fragment
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import dev.alexferreira.R
 import dev.alexferreira.data.model.Cliente
+import dev.alexferreira.helper.ViewHelper
 import dev.alexferreira.ui.contract.DadosClienteContract
 import dev.alexferreira.ui.presenter.fragment.DadosClienteFragPresenter
 import kotlinx.android.synthetic.main.fragment_dados_cliente.*
@@ -39,15 +41,16 @@ class DadosClienteFragment : AbstractFragment<DadosClienteContract.DadosClienteF
     }
 
     override fun showEmptyLayout() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        ViewHelper.showFirstHideSecond(tv_empty, recyclerView)
     }
 
     override fun showListView() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        ViewHelper.showFirstHideSecond(recyclerView, tv_empty)
     }
 
     override fun initDadosList(model: Cliente) {
-        TODO("Tnot implemented") //To change body of created functions use File | Settings | File Templates.
+//        recyclerView.adapter = DadosClienteListAdapter()
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
     }
 
     override fun showSnackBarMsg(msg: String) {
