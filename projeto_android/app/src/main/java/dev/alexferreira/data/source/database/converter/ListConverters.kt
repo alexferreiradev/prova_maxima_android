@@ -7,13 +7,21 @@ object ListConverters {
 
     @TypeConverter
     @JvmStatic
-    fun fromJson(json: String): List<String> {
+    fun fromJson(json: String?): List<String> {
+        if (json == null) {
+            return ArrayList()
+        }
+
         return Gson().fromJson<List<String>>(json, List::class.java)
     }
 
     @TypeConverter
     @JvmStatic
-    fun toJson(list: List<String>): String {
+    fun toJson(list: List<String>?): String {
+        if (list == null) {
+            return ""
+        }
+
         return Gson().toJson(list)
     }
 }
