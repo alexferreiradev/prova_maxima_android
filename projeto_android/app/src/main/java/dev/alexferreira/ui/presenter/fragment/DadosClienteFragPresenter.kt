@@ -34,17 +34,21 @@ class DadosClienteFragPresenter @Inject constructor(val cliRepo: IClienteReposit
 
         LoadClienteTask(object : TaskCallback<Cliente> {
             override fun onEmpty() {
-                view.hideProgressBar()
+                if (viewNotPaused) {
+                    view.hideProgressBar()
 
-                view.showEmptyLayout()
+                    view.showEmptyLayout()
+                }
             }
 
             override fun onSuccessResult(model: Cliente) {
-                view.hideProgressBar()
+                if (viewNotPaused) {
+                    view.hideProgressBar()
 
-                currentCliente = model
-                view.initDadosList(model)
-                view.showListView()
+                    currentCliente = model
+                    view.initDadosList(model)
+                    view.showListView()
+                }
             }
         }, cliRepo).execute(clientId)
     }

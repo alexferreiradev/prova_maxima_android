@@ -11,6 +11,8 @@ abstract class AbstractFragPresenter<V : IFragmentView> : IFragmentPresenter<V> 
     protected lateinit var context: Context
     protected var args: Bundle? = null
 
+    protected var viewNotPaused = true
+
     override fun onViewCreated(view: V, context: Context, args: Bundle?) {
         this.view = view
         this.context = context
@@ -22,6 +24,7 @@ abstract class AbstractFragPresenter<V : IFragmentView> : IFragmentPresenter<V> 
     }
 
     override fun onViewPaused() {
+        viewNotPaused = false
     }
 
     override fun onViewDestroyed() {
