@@ -28,16 +28,20 @@ class HistoricoPedidoFragPresenter @Inject constructor(val pedidoRepo: IPedidoCl
         }
         LoadPedidoClienteTask(object : TaskCallback<List<PedidoCliente>> {
             override fun onEmpty() {
-                view.hideProgressBar()
+                if (viewNotPaused) {
+                    view.hideProgressBar()
 
-                view.showEmptyView()
+                    view.showEmptyView()
+                }
             }
 
             override fun onSuccessResult(model: List<PedidoCliente>) {
-                view.hideProgressBar()
+                if (viewNotPaused) {
+                    view.hideProgressBar()
 
-                view.initListView(model)
-                view.showListView()
+                    view.initListView(model)
+                    view.showListView()
+                }
             }
         }, pedidoRepo).execute(clienteId)
         view.setHasOptionMenu(true)
