@@ -28,4 +28,7 @@
     <string name="close_snack_action">Fechar</string>
     <string name="tvempty_cliente">Cliente não foi encontrado</string>
     <string name="legenda_hisotrico_pedido_menu_title">Legendas</string>
+    <string name="empty_pedido_cliente">Não pedidos cadastrados</string>
+    <string name="empty_pedido_date">Não informado</string>
+    <string name="valor_pedido_default">0,00</string>
 </resources>

@@ -3,12 +3,19 @@ package dev.alexferreira.ui.fragment
 
 import android.os.Bundle
 import android.support.v4.app.Fragment
+import android.support.v7.app.AlertDialog
+import android.support.v7.widget.LinearLayoutManager
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import dev.alexferreira.R
-
-private const val ARG_CLIENTE_ID = "param1"
+import dev.alexferreira.data.model.PedidoCliente
+import dev.alexferreira.helper.ViewHelper
+import dev.alexferreira.ui.adapter.PedidoClienteListAdapter
+import dev.alexferreira.ui.contract.DadosClienteContract
+import dev.alexferreira.ui.presenter.fragment.HistoricoPedidoFragPresenter
+import kotlinx.android.synthetic.main.fragment_alvara.recyclerView
+import kotlinx.android.synthetic.main.fragment_historico_pedido.*
 
 /**
  * A simple [Fragment] subclass.
@@ -16,15 +23,9 @@ private const val ARG_CLIENTE_ID = "param1"
  * create an instance of this fragment.
  *
  */
-class HistoricoPedidoFragment : Fragment() {
-    private lateinit var clienteId: String
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            clienteId = it.getString(ARG_CLIENTE_ID)!!
-        }
-    }
+class HistoricoPedidoFragment :
+    AbstractFragment<DadosClienteContract.HistoricoPedidoContract.FragView, DadosClienteContract.HistoricoPedidoContract.FragPresenter>(),
+    DadosClienteContract.HistoricoPedidoContract.FragView {
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -33,6 +34,27 @@ class HistoricoPedidoFragment : Fragment() {
         return inflater.inflate(R.layout.fragment_historico_pedido, container, false)
     }
 
+    override fun setHasOptionMenu(hasMenu: Boolean) {
+        setHasOptionsMenu(hasMenu)
+    }
+
+    override fun showLegendaDialog() {
+        val builder = AlertDialog.Builder(requireContext()).setView(R.layout.dialog_legenda_pedido)
+        builder.create().show()
+    }
+
+    override fun showEmptyView() {
+        ViewHelper.showFirstHideSecond(tv_empty, recyclerView)
+    }
+
+    override fun showListView() {
+        ViewHelper.showFirstHideSecond(recyclerView, tv_empty)
+    }
+
+    override fun initListView(modelList: List<PedidoCliente>) {
+        recyclerView.adapter = PedidoClienteListAdapter(modelList, requireContext())
+        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+    }
 
     companion object {
         /**
@@ -43,9 +65,9 @@ class HistoricoPedidoFragment : Fragment() {
          */
         @JvmStatic
         fun newInstance(clienteId: String) =
-            DadosClienteFragment().apply {
+            HistoricoPedidoFragment().apply {
                 arguments = Bundle().apply {
-                    putString(ARG_CLIENTE_ID, clienteId)
+                    putString(HistoricoPedidoFragPresenter.ARG_CLIENTE_ID, clienteId)
                 }
             }
     }

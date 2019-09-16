@@ -40,6 +40,7 @@ class HistoricoPedidoFragPresenter @Inject constructor(val pedidoRepo: IPedidoCl
                 view.showListView()
             }
         }, pedidoRepo).execute(clienteId)
+        view.setHasOptionMenu(true)
     }
 
     override fun selectOptionMenu(menuItem: MenuItem) {

@@ -23,4 +23,8 @@ data class PedidoCliente(
     val critica: CriticaPedido? = null,
     val tipo: TipoPedido? = null,
     val legendas: List<String> = emptyList()
-) : Parcelable
+) : Parcelable {
+    companion object {
+        const val DATE_PATTERN = "yyyy-MM-dd'T'HH:mm:ssSSSS"
+    }
+}

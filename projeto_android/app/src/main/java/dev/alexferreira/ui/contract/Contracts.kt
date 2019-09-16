@@ -48,9 +48,14 @@ interface DadosClienteContract {
     }
 
     interface HistoricoPedidoContract {
-        interface FragView : IFragmentView, SubView, IListView<PedidoCliente>
+        interface FragView : IFragmentView, SubView, IListView<PedidoCliente> {
+            fun showLegendaDialog()
+            fun setHasOptionMenu(hasMenu: Boolean)
+        }
 
-        interface FragPresenter : IFragmentPresenter<FragView>
+        interface FragPresenter : IFragmentPresenter<FragView> {
+            fun selectOptionMenu(menuItem: MenuItem)
+        }
     }
 
     interface AlvaraContract {
