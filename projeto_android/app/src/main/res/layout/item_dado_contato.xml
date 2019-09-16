@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                                             xmlns:app="http://schemas.android.com/apk/res-auto"
+                                             xmlns:tools="http://schemas.android.com/tools"
+                                             android:layout_width="match_parent"
+                                             android:layout_height="match_parent">
+
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_label_start" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintStart_toStartOf="parent" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp" android:layout_marginBottom="8dp"
+            app:layout_constraintBottom_toBottomOf="parent" app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintEnd_toStartOf="@+id/tv_data_start"
+            app:layout_constraintHorizontal_chainStyle="packed" tools:text="Telefone:"/>
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_data_start" app:layout_constraintStart_toEndOf="@+id/tv_label_start"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="@+id/tv_label_start"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_label_start"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toStartOf="@+id/imageView"
+            tools:text="(62) 0000-0000"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:srcCompat="@drawable/ic_maxima_telefone"
+            android:id="@+id/imageView"
+            app:layout_constraintStart_toEndOf="@+id/tv_data_start"
+            app:layout_constraintTop_toTopOf="@+id/tv_data_start"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_data_start"
+            app:layout_constraintEnd_toStartOf="@+id/guideline"
+            android:contentDescription="@string/cd_tipo_contato"
+            app:layout_constraintHorizontal_bias="0.5"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"/>
+    <android.support.constraint.Guideline
+            android:orientation="vertical"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" android:id="@+id/guideline"
+            app:layout_constraintGuide_percent="0.5"/>
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_label_end" app:layout_constraintStart_toStartOf="@+id/guideline"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp" app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent" tools:text="E-mail:"
+            app:layout_constraintStart_toEndOf="@+id/imageView" app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintEnd_toStartOf="@+id/tv_daata_end"
+            app:layout_constraintHorizontal_chainStyle="packed"/>
+    <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:id="@+id/tv_daata_end" app:layout_constraintStart_toEndOf="@+id/tv_label_end"
+            android:layout_marginLeft="8dp" android:layout_marginStart="8dp"
+            app:layout_constraintTop_toTopOf="@+id/tv_label_end"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_label_end" tools:text="email@gmail.com"
+            app:layout_constraintHorizontal_bias="0.5" app:layout_constraintEnd_toStartOf="@+id/iv_type_end"/>
+    <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:srcCompat="@drawable/ic_maxima_telefone"
+            android:id="@+id/iv_type_end" app:layout_constraintEnd_toEndOf="parent"
+            android:layout_marginEnd="8dp" android:layout_marginRight="8dp"
+            app:layout_constraintStart_toEndOf="@+id/tv_daata_end" android:layout_marginLeft="8dp"
+            android:layout_marginStart="8dp"
+            android:contentDescription="@string/cd_tipo_contato"
+            app:layout_constraintTop_toTopOf="@+id/tv_daata_end"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_daata_end" app:layout_constraintHorizontal_bias="0.5"/>
+</android.support.constraint.ConstraintLayout>

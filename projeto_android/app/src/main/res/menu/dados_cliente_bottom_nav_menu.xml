@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item android:title="@string/dados_cliente_menu_item_title" android:id="@+id/dados_cliente_menu_item"
+          android:icon="@drawable/dados_cliente_bottom_nav_selector"/>
+    <item android:title="@string/hitorico_dados_cliente_menu_item_title"
+          android:id="@+id/historico_dados_cliente_menu_item"
+          android:icon="@drawable/historico_bottom_nav_selector"/>
+    <item android:title="@string/alvara_dados_cliente_menu_item_title" android:id="@+id/alvara_dados_cliente_menu_item"
+          android:icon="@drawable/alvara_bottom_nav_selector"/>
+</menu>

@@ -1,0 +1,41 @@
+<resources>
+    <string name="app_name">maxApp</string>
+    <string name="cd_splash_image">Imagem de fundo para tela inteira</string>
+    <string name="cd_net_status">imagem representando estado de conexão</string>
+    <string name="dados_cliente_header">Dados do cliente</string>
+    <string name="contatos_cliente_header">Contatos</string>
+    <string name="cd_tipo_contato">imagem representando tipo de contato</string>
+    <string name="numero_pedido_label">Nº Ped. RCA/ERP:</string>
+    <string name="cd_type_pedido">Imagem que representa tipo de pedido</string>
+    <string name="cliente_pedido_label">Cliente:</string>
+    <string name="cd_status_pedido">Imagem que representa estado de pedido</string>
+    <string name="critica_pedido_label">Crítica:</string>
+    <string name="cd_critica_pedido">Imagem que representa critica de pedido</string>
+    <string name="close_bt_dialog">Fechar</string>
+    <string name="legendas_header_dialog">Legendas</string>
+    <string name="cd_empty_alvara_icon">Imagem que representa alvara vazio</string>
+    <string name="empty_alvara_title">Nada encontrado…</string>
+    <string name="empty_alvara_subtitle">Não há alvará para exibir, verifique com o responsável pelo ERP</string>
+    <string name="cd_legenda_pedido_icon">imagem representa icone de legenda de pedido</string>
+    <string name="cd_icon_main_menu">icone de menu</string>
+    <string name="verifify_status_cliente_bt">Verificar status do cliente</string>
+
+    <string name="dados_cliente_menu_item_title">Dados</string>
+    <string name="hitorico_dados_cliente_menu_item_title">Historico</string>
+    <string name="alvara_dados_cliente_menu_item_title">Alvará</string>
+    <string name="dados_cliente_main_menu_title">Clientes</string>
+    <string name="pedido_main_menu_title">Pedidos</string>
+    <string name="resumo_vendas_main_menu_title">Resumo de Vendas</string>
+    <string name="ferramentas_main_menu_title">Ferramentas</string>
+    <string name="unknow_main_menu_error">Menu clicado não ativo</string>
+    <string name="close_snack_action">Fechar</string>
+    <string name="tvempty_cliente">Cliente não foi encontrado</string>
+    <string name="legenda_hisotrico_pedido_menu_title">Legendas</string>
+    <string name="empty_pedido_cliente">Não pedidos cadastrados</string>
+    <string name="empty_pedido_date">Não informado</string>
+    <string name="valor_pedido_default">0,00</string>
+    <string name="cliente_id_intent_key">cliente id intent key</string>
+    <string name="pedido_cliente_ab_title">Hist. de pedidos</string>
+    <string name="dados_cliente_ab_title">Dados do cliente</string>
+    <string name="alvara_ab_title">Alvarás</string>
+</resources>
