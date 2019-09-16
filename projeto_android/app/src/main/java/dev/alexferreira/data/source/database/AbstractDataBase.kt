@@ -7,7 +7,7 @@ import dev.alexferreira.data.model.Cliente
 import dev.alexferreira.data.model.PedidoCliente
 import dev.alexferreira.data.source.database.converter.*
 
-@Database(entities = [Cliente::class, PedidoCliente::class], version = 1, exportSchema = false)
+@Database(entities = [Cliente::class, PedidoCliente::class], version = 2, exportSchema = false)
 @TypeConverters(
     StatusClienteConverter::class,
     StatusPedidoConverter::class,

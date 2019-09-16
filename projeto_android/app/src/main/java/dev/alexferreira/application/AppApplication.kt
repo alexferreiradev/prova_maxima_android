@@ -31,7 +31,9 @@ class AppApplication : Application(), HasActivityInjector, HasSupportFragmentInj
     }
 
     override fun onCreate() {
-        val dataBase = Room.databaseBuilder(this, AbstractDataBase::class.java, DATABASE_NAME).build()
+        val dataBase =
+            Room.databaseBuilder(this, AbstractDataBase::class.java, DATABASE_NAME).fallbackToDestructiveMigration()
+                .build()
         val gson = GsonBuilder().create()
         DaggerApplicationComponent.builder().application(this).context(this)
             .dataBase(dataBase)

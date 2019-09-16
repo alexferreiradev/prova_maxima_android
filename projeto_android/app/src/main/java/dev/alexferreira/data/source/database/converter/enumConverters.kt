@@ -9,42 +9,53 @@ import dev.alexferreira.data.model.TipoPedido
 object StatusClienteConverter {
     @TypeConverter
     @JvmStatic
-    fun toEnum(desc: String): StatusCliente? {
+    fun toEnum(desc: String?): StatusCliente? {
+        if (desc == null) {
+            return null
+        }
+
         return StatusCliente.fromDesc(desc)
     }
 
     @TypeConverter
     @JvmStatic
-    fun fromEnum(statusCliente: StatusCliente): String {
-        return statusCliente.desc
+    fun fromEnum(statusCliente: StatusCliente?): String {
+        return statusCliente?.desc ?: ""
     }
 }
 
 object StatusPedidoConverter {
     @TypeConverter
     @JvmStatic
-    fun toEnum(desc: String): StatusPedido? {
+    fun toEnum(desc: String?): StatusPedido? {
+        if (desc == null) {
+            return null
+        }
         return StatusPedido.fromDescription(desc)
     }
 
     @TypeConverter
     @JvmStatic
-    fun fromEnum(value: StatusPedido): String {
-        return value.description
+    fun fromEnum(value: StatusPedido?): String {
+        return value?.description ?: ""
     }
 }
 
 object TipoPedidoConverter {
     @TypeConverter
     @JvmStatic
-    fun toEnum(desc: String): TipoPedido? {
+    fun toEnum(desc: String?): TipoPedido? {
+        if (desc == null) {
+            return null
+        }
+
         return TipoPedido.fromDesc(desc)
     }
 
     @TypeConverter
     @JvmStatic
-    fun fromEnum(value: TipoPedido): String {
-        return value.desc
+    fun fromEnum(value: TipoPedido?): String {
+        return value?.desc ?: ""
     }
 }
 
