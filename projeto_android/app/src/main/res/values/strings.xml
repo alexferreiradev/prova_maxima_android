@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SplashActivity</string>
+    <string name="app_name">maxApp</string>
     <string name="cd_splash_image">Imagem de fundo para tela inteira</string>
     <string name="cd_net_status">imagem representando estado de conexão</string>
     <string name="dados_cliente_header">Dados do cliente</string>
@@ -24,6 +24,9 @@
     <string name="hitorico_dados_cliente_menu_item_title">Historico</string>
     <string name="alvara_dados_cliente_menu_item_title">Alvará</string>
     <string name="dados_cliente_main_menu_title">Clientes</string>
+    <string name="pedido_main_menu_title">Pedidos</string>
+    <string name="resumo_vendas_main_menu_title">Resumo de Vendas</string>
+    <string name="ferramentas_main_menu_title">Ferramentas</string>
     <string name="unknow_main_menu_error">Menu clicado não ativo</string>
     <string name="close_snack_action">Fechar</string>
     <string name="tvempty_cliente">Cliente não foi encontrado</string>
@@ -31,4 +34,5 @@
     <string name="empty_pedido_cliente">Não pedidos cadastrados</string>
     <string name="empty_pedido_date">Não informado</string>
     <string name="valor_pedido_default">0,00</string>
+    <string name="cliente_id_intent_key">cliente id intent key</string>
 </resources>

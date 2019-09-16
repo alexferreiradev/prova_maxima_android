@@ -1,9 +1,11 @@
 package dev.alexferreira.ui.view
 
+import android.content.Intent
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import dagger.android.AndroidInjection
-import dev.alexferreira.data.model.Cliente
+import dev.alexferreira.R
+import dev.alexferreira.helper.ViewHelper
 import dev.alexferreira.ui.contract.IPresenter
 import dev.alexferreira.ui.contract.IView
 import dev.alexferreira.ui.contract.Navigator
@@ -57,11 +59,11 @@ abstract class AbstractView<ViewType : IView, PresenterType : IPresenter<ViewTyp
     }
 
     override fun showErrorMsg(msg: String) {
-//        ViewHelper.showErrorMsg(this, msg)
+        ViewHelper.showErrorMsg(this, msg)
     }
 
     override fun showSucessMsg(msg: String) {
-//        ViewHelper.showSuccessMsg(this, msg)
+        ViewHelper.showSuccessMsg(this, msg)
     }
 
     override fun showProgressBar() {
@@ -77,10 +79,19 @@ abstract class AbstractView<ViewType : IView, PresenterType : IPresenter<ViewTyp
     }
 
     override fun openMainMenuView() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        startActivity(
+            Intent(
+                this,
+                MainMenuActivity::class.java
+            )
+        )
     }
 
-    override fun openDadosClienteView(cliente: Cliente) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun openDadosClienteView(id: String) {
+        startActivity(
+            Intent(
+                this,
+                DadosClienteActivity::class.java
+            ).apply { putExtra(getString(R.string.cliente_id_intent_key), id) })
     }
 }

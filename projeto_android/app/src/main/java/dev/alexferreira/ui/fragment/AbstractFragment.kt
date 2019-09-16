@@ -6,7 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import dagger.android.support.AndroidSupportInjection
-import dev.alexferreira.data.model.Cliente
+import dev.alexferreira.helper.ViewHelper
 import dev.alexferreira.ui.contract.IFragmentPresenter
 import dev.alexferreira.ui.contract.IFragmentView
 import dev.alexferreira.ui.contract.Navigator
@@ -47,27 +47,23 @@ abstract class AbstractFragment<V : IFragmentView, P : IFragmentPresenter<V>> : 
     }
 
     override fun openMainMenuView() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
-    override fun openDadosClienteView(cliente: Cliente) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+    override fun openDadosClienteView(id: String) {
     }
 
     override fun showErrorMsg(msg: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        ViewHelper.showErrorMsg(requireContext(), msg)
     }
 
     override fun showSucessMsg(msg: String) {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        ViewHelper.showSuccessMsg(requireContext(), msg)
     }
 
     override fun showProgressBar() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun hideProgressBar() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
 
     override fun getNavigator(): Navigator {
