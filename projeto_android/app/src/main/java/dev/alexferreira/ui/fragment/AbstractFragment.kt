@@ -6,10 +6,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import dagger.android.support.AndroidSupportInjection
+import dev.alexferreira.R
 import dev.alexferreira.helper.ViewHelper
 import dev.alexferreira.ui.contract.IFragmentPresenter
 import dev.alexferreira.ui.contract.IFragmentView
 import dev.alexferreira.ui.contract.Navigator
+import org.jetbrains.anko.find
 import javax.inject.Inject
 
 abstract class AbstractFragment<V : IFragmentView, P : IFragmentPresenter<V>> : Fragment(), IFragmentView, Navigator {
@@ -61,9 +63,11 @@ abstract class AbstractFragment<V : IFragmentView, P : IFragmentPresenter<V>> : 
     }
 
     override fun showProgressBar() {
+        ViewHelper.setViewVisible(view?.find(R.id.progressBar))
     }
 
     override fun hideProgressBar() {
+        ViewHelper.hideView(view?.find(R.id.progressBar))
     }
 
     override fun getNavigator(): Navigator {

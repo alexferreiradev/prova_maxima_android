@@ -7,6 +7,7 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.support.v4.app.Fragment
 import androidx.work.Constraints
+import androidx.work.ExistingPeriodicWorkPolicy
 import androidx.work.PeriodicWorkRequestBuilder
 import androidx.work.WorkManager
 import com.google.gson.GsonBuilder
@@ -58,10 +59,11 @@ class AppApplication : Application(), HasActivityInjector, HasSupportFragmentInj
     }
 
     private fun startNotificationService() {
-        val workRequest = PeriodicWorkRequestBuilder<NotificationWorker>(5, TimeUnit.MINUTES)
+        val workRequest = PeriodicWorkRequestBuilder<NotificationWorker>(15, TimeUnit.MINUTES)
             .setConstraints(Constraints.Builder().setRequiresBatteryNotLow(true).build())
             .build()
-        WorkManager.getInstance().enqueue(workRequest)
+        WorkManager.getInstance()
+            .enqueueUniquePeriodicWork("notification", ExistingPeriodicWorkPolicy.KEEP, workRequest)
     }
 
     private fun startBootReceiver() {

@@ -39,8 +39,7 @@ class NotificationWorker(var context: Context, workerParams: WorkerParameters) :
             .setColor(Color.RED)
             .setLocalOnly(true)
             .build()
-        NotificationManagerCompat.from(context)
-            .notify(Random().nextInt(), notification)
+        NotificationManagerCompat.from(context).notify(Random().nextInt(), notification)
 
         Timber.d("Fim worker de notificacao")
 
