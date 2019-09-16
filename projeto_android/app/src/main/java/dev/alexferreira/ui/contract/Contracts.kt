@@ -25,10 +25,13 @@ interface DadosClienteContract {
     interface View : IView {
         fun initViewPager(cliente: Cliente)
         fun setViewPagerPos(pos: Int)
+        fun setBottomNavSelectedItem(itemId: Int)
+        fun setAbTitle(title: Int)
     }
 
     interface Presenter : IPresenter<View>, SharedView {
         fun selectBottomNavItemMenu(menuItem: MenuItem): Boolean
+        fun onPageSelected(pos: Int)
     }
 
     interface SharedView
@@ -55,7 +58,7 @@ interface DadosClienteContract {
         }
 
         interface FragPresenter : IFragmentPresenter<FragView> {
-            fun selectOptionMenu(menuItem: MenuItem)
+            fun selectOptionMenu(menuItem: MenuItem): Boolean
         }
     }
 

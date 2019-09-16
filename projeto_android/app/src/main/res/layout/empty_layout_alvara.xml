@@ -18,6 +18,8 @@
     <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
+            android:textColor="@color/alvara_title"
+            android:textStyle="bold"
             android:id="@+id/textView4" android:text="@string/empty_alvara_title"
             app:layout_constraintTop_toBottomOf="@+id/imageView2" app:layout_constraintStart_toStartOf="@+id/imageView2"
             app:layout_constraintEnd_toEndOf="@+id/imageView2" android:gravity="center_horizontal"/>
@@ -25,6 +27,7 @@
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:id="@+id/textView6"
+            android:textColor="@color/alvara_subtitle"
             app:layout_constraintTop_toBottomOf="@+id/textView4" app:layout_constraintStart_toStartOf="@+id/textView4"
             app:layout_constraintEnd_toEndOf="@+id/textView4"
             android:text="@string/empty_alvara_subtitle"

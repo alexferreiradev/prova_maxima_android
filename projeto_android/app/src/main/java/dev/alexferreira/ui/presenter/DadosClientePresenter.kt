@@ -39,6 +39,26 @@ class DadosClientePresenter @Inject constructor(val cliRepo: IClienteRepository)
         }
     }
 
+    override fun onPageSelected(pos: Int) {
+        when (pos) {
+            DadosClienteViewPagerAdapter.DADOS_CLIENTE_POS -> {
+                view.setBottomNavSelectedItem(R.id.dados_cliente_menu_item)
+                view.setAbTitle(R.string.dados_cliente_ab_title)
+            }
+            DadosClienteViewPagerAdapter.HISTORICO_PEDIDOS_POS -> {
+                view.setBottomNavSelectedItem(R.id.historico_dados_cliente_menu_item)
+                view.setAbTitle(R.string.pedido_cliente_ab_title)
+            }
+            DadosClienteViewPagerAdapter.ALVARA_POS -> {
+                view.setBottomNavSelectedItem(R.id.alvara_dados_cliente_menu_item)
+                view.setAbTitle(R.string.alvara_ab_title)
+            }
+            else -> {
+                Timber.e("Pagina selecionada não tradada: $pos")
+            }
+        }
+    }
+
     override fun onViewStarted(intent: Intent?) {
         super.onViewStarted(intent)
         LoadClienteTask(object : TaskCallback<Cliente> {

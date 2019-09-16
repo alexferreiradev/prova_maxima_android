@@ -35,4 +35,7 @@
     <string name="empty_pedido_date">Não informado</string>
     <string name="valor_pedido_default">0,00</string>
     <string name="cliente_id_intent_key">cliente id intent key</string>
+    <string name="pedido_cliente_ab_title">Hist. de pedidos</string>
+    <string name="dados_cliente_ab_title">Dados do cliente</string>
+    <string name="alvara_ab_title">Alvarás</string>
 </resources>

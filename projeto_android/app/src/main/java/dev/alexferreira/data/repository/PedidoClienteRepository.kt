@@ -30,12 +30,17 @@ class PedidoClienteRepository @Inject constructor(var maximaApi: MaximaApi, var 
             if (response.isSuccessful) {
                 val jsonObject = response.body()!!
                 modelList.addAll(createListFromJson(jsonObject))
+                Timber.d("Salvando obj em dao")
                 dao.saveAll(modelList)
             } else {
                 Timber.e("Erro de resposta de pedido: ${response.errorBody()}")
             }
+        } else {
+            Timber.d("Retornando obj encontrado em dao")
+            return byDao
         }
 
+        Timber.d("Retornando obj encontrado em net")
         return modelList
     }
 

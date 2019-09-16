@@ -43,15 +43,18 @@ class HistoricoPedidoFragPresenter @Inject constructor(val pedidoRepo: IPedidoCl
         view.setHasOptionMenu(true)
     }
 
-    override fun selectOptionMenu(menuItem: MenuItem) {
+    override fun selectOptionMenu(menuItem: MenuItem): Boolean {
         when (menuItem.itemId) {
             R.id.legenda_historico_pedidos_menu -> {
                 view.showLegendaDialog()
             }
             else -> {
                 Timber.e("Não foi tratado selecao de menu: ${menuItem.title} com id: ${menuItem.itemId}")
+                return false
             }
         }
+
+        return true
     }
 
     companion object {

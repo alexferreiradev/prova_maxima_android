@@ -13,6 +13,7 @@ class MainMenuActivity : AbstractView<MainMenuContract.View, MainMenuContract.Pr
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main_menu)
+        setSupportActionBar(toolbar)
     }
 
     override fun initAdapter(menuList: MutableList<MainMenuModel>) {

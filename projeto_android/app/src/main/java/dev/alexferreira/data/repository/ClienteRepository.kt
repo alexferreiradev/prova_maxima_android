@@ -23,12 +23,15 @@ class ClienteRepository @Inject constructor(var maximaApi: MaximaApi, var client
             if (execute.isSuccessful) {
                 val jsonObject = execute.body()!!
                 val cliente = gson.fromJson(jsonObject["cliente"].asJsonObject, Cliente::class.java)
+                Timber.d("Salvando obj em dao")
                 clienteDao.save(cliente)
+                Timber.d("Retornando obj encontrado em net")
                 return cliente
             } else {
                 Timber.e("Erro em requisição de cliente: ${execute.errorBody()}")
             }
         } else {
+            Timber.d("Retornando obj encontrado em dao")
             return byDao
         }
 

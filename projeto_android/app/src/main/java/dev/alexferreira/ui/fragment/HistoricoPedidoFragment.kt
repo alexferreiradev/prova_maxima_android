@@ -5,16 +5,13 @@ import android.os.Bundle
 import android.support.v4.app.Fragment
 import android.support.v7.app.AlertDialog
 import android.support.v7.widget.LinearLayoutManager
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
+import android.view.*
 import dev.alexferreira.R
 import dev.alexferreira.data.model.PedidoCliente
 import dev.alexferreira.helper.ViewHelper
 import dev.alexferreira.ui.adapter.PedidoClienteListAdapter
 import dev.alexferreira.ui.contract.DadosClienteContract
 import dev.alexferreira.ui.presenter.fragment.HistoricoPedidoFragPresenter
-import kotlinx.android.synthetic.main.fragment_alvara.recyclerView
 import kotlinx.android.synthetic.main.fragment_historico_pedido.*
 
 /**
@@ -33,6 +30,19 @@ class HistoricoPedidoFragment :
     ): View? {
         super.onCreateView(inflater, container, savedInstanceState)
         return inflater.inflate(R.layout.fragment_historico_pedido, container, false)
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?, inflater: MenuInflater?) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater?.inflate(R.menu.historico_pedidos_fragment_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem?): Boolean {
+        if (item == null) {
+            return false
+        }
+
+        return presenter.selectOptionMenu(item)
     }
 
     override fun setHasOptionMenu(hasMenu: Boolean) {

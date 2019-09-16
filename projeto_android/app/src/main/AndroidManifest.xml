@@ -14,7 +14,7 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".ui.view.DadosClienteActivity">
+        <activity android:name=".ui.view.DadosClienteActivity" android:label="@string/dados_cliente_ab_title">
         </activity>
         <activity android:name=".ui.view.SplashActivity">
             <intent-filter>

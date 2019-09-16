@@ -1,8 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="colorPrimary">#008577</color>
-    <color name="colorPrimaryDark">#00574B</color>
-    <color name="colorAccent">#D81B60</color>
+    <color name="colorPrimary">#186096</color>
+    <color name="colorPrimaryDark">#00386C</color>
+    <color name="colorAccent">#638735</color>
+
+    <color name="screen_background">#FFFFFF</color>
+    <color name="card_screen_background">#F1F1F1</color>
     <color name="splash_background">#3F51B5</color>
-    <color name="dados_cliente_bottom_background">#2A5A92</color>
+    <color name="dados_cliente_bottom_background">#186096</color>
+    <color name="main_menu_text">#232323</color>
+    <color name="status_con_text">#727272</color>
+    <color name="label_text">#95989A</color>
+    <color name="alvara_title">#3E3E3E</color>
+    <color name="alvara_subtitle">#3E3E3E</color>
+    <color name="ab_text">#fff</color>
 </resources>
