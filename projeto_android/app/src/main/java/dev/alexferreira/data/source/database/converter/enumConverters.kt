@@ -51,13 +51,17 @@ object TipoPedidoConverter {
 object CriticaPedidoConverter {
     @TypeConverter
     @JvmStatic
-    fun toEnum(desc: String): CriticaPedido? {
+    fun toEnum(desc: String?): CriticaPedido? {
         return CriticaPedido.fromDesc(desc)
     }
 
     @TypeConverter
     @JvmStatic
-    fun fromEnum(value: CriticaPedido): String {
+    fun fromEnum(value: CriticaPedido?): String {
+        if (value == null) {
+            return ""
+        }
+
         return value.desc
     }
 }

@@ -11,6 +11,6 @@ class LoadPedidoClienteTask(
 ) : DefaultTask<List<PedidoCliente>>(callback) {
 
     override fun retrieveModel(params: Array<out String?>): List<PedidoCliente>? {
-        return repo.getAll()
+        return repo.getAllByCliId(params[0])
     }
 }

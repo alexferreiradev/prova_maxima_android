@@ -1,9 +1,12 @@
 package dev.alexferreira.data.model
 
 import android.arch.persistence.room.TypeConverter
+import com.google.gson.annotations.SerializedName
 
 enum class TipoPedido(val desc: String) {
+    @SerializedName("PEDIDO")
     PEDIDO("PEDIDO"),
+    @SerializedName("ORCAMENTO")
     ORCAMENTO("ORCAMENTO");
 
     companion object {

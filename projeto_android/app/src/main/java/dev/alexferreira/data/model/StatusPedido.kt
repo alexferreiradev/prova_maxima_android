@@ -1,9 +1,14 @@
 package dev.alexferreira.data.model
 
+import com.google.gson.annotations.SerializedName
+
 enum class StatusPedido(val description: String) {
 
+    @SerializedName("Processado")
     PROCESSADO("Processado"),
+    @SerializedName("Em processamento")
     EM_PROCESSAMENTO("Em processamento"),
+    @SerializedName("Pendente")
     PENDENTE("Pendente");
 
     companion object {

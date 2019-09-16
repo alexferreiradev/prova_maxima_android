@@ -25,7 +25,7 @@ data class Cliente(
 
 @Parcelize
 data class ClienteContato(
-    @field:[PrimaryKey] var id: Long?,
+    @field:[PrimaryKey] var id: Long? = null,
     @field:[ColumnInfo] var clienteFK: Long? = null,
     @field:[ColumnInfo] var nome: String = "",
     @field:[ColumnInfo] var telefone: String = "",

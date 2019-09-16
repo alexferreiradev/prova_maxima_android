@@ -9,7 +9,7 @@ import kotlinx.android.parcel.Parcelize
 @Entity
 @Parcelize
 data class PedidoCliente(
-    @PrimaryKey val id: Long,
+    @PrimaryKey val id: Long? = null,
     @SerializedName("numero_ped_Rca") val numeroPedRca: Long? = null,
     @SerializedName(
         "numero_ped_erp"
