@@ -5,7 +5,7 @@
           android:icon="@drawable/dados_cliente_bottom_nav_selector"/>
     <item android:title="@string/hitorico_dados_cliente_menu_item_title"
           android:id="@+id/historico_dados_cliente_menu_item"
-          android:icon="@drawable/historico_bottom_nav_selector" android:enabled="false"/>
+          android:icon="@drawable/historico_bottom_nav_selector" android:enabled="true"/>
     <item android:title="@string/alvara_dados_cliente_menu_item_title" android:id="@+id/alvara_dados_cliente_menu_item"
-          android:icon="@drawable/alvara_bottom_nav_selector" android:enabled="false"/>
+          android:icon="@drawable/alvara_bottom_nav_selector" android:enabled="true"/>
 </menu>
