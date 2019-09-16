@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <dimen name="iv_net_status_h">20dp</dimen>
-    <dimen name="main_menu_padding">48dp</dimen>
+    <dimen name="main_menu_padding">16dp</dimen>
+    <dimen name="main_menu_margin">8dp</dimen>
+    <dimen name="main_menu_min_h">150dp</dimen>
     <dimen name="iv_main_menu_h">48dp</dimen>
     <dimen name="iv_empty_icon_h">148dp</dimen>
     <dimen name="dados_cliente_bottom_nav_h">64dp</dimen>
