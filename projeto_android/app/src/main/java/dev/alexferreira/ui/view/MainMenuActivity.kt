@@ -24,4 +24,8 @@ class MainMenuActivity : AbstractView<MainMenuContract.View, MainMenuContract.Pr
         recyclerView.layoutManager =
             GridLayoutManager(applicationContext, resources.getInteger(R.integer.main_menu_grid_span))
     }
+
+    override fun setVersionText(versionText: String) {
+        tv_version.text = versionText
+    }
 }

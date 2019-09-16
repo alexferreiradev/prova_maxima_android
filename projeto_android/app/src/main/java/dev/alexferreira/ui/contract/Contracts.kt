@@ -13,6 +13,7 @@ interface SplashContract {
 interface MainMenuContract {
     interface View : IView {
         fun initAdapter(menuList: MutableList<MainMenuModel>)
+        fun setVersionText(versionText: String)
     }
 
     interface Presenter : IPresenter<View> {

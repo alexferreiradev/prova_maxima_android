@@ -7,13 +7,13 @@
                                              android:layout_height="wrap_content">
 
     <TextView
-            tools:text="Clientes"
+            tools:text="@string/resumo_vendas_main_menu_title"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/tv_menu_title" android:layout_marginTop="8dp"
             android:textStyle="bold"
             app:layout_constraintTop_toBottomOf="@+id/iv_menu" app:layout_constraintEnd_toEndOf="@+id/iv_menu"
-            app:layout_constraintStart_toStartOf="@+id/iv_menu"/>
+            app:layout_constraintStart_toStartOf="@+id/iv_menu" android:gravity="center_horizontal|center_vertical"/>
     <ImageView
             android:layout_width="wrap_content"
             android:layout_height="@dimen/iv_main_menu_h"
