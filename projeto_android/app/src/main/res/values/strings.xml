@@ -38,4 +38,8 @@
     <string name="pedido_cliente_ab_title">Hist. de pedidos</string>
     <string name="dados_cliente_ab_title">Dados do cliente</string>
     <string name="alvara_ab_title">Alvarás</string>
+    <string name="notification_title">Iniciei seu app Max</string>
+    <string name="notification_content">Já se passou mais de 5 minutos que não encontrou no App</string>
+    <string name="notfication_channel_name">geral</string>
+    <string name="notfication_channel_description">Notificações em gerais</string>
 </resources>

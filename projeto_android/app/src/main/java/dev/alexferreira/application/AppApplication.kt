@@ -3,7 +3,12 @@ package dev.alexferreira.application
 import android.app.Activity
 import android.app.Application
 import android.arch.persistence.room.Room
+import android.content.Intent
+import android.content.IntentFilter
 import android.support.v4.app.Fragment
+import androidx.work.Constraints
+import androidx.work.PeriodicWorkRequestBuilder
+import androidx.work.WorkManager
 import com.google.gson.GsonBuilder
 import dagger.android.AndroidInjector
 import dagger.android.DispatchingAndroidInjector
@@ -11,10 +16,13 @@ import dagger.android.HasActivityInjector
 import dagger.android.support.HasSupportFragmentInjector
 import dev.alexferreira.data.source.database.AbstractDataBase
 import dev.alexferreira.injection.DaggerApplicationComponent
+import dev.alexferreira.service.BootReceiver
+import dev.alexferreira.service.worker.NotificationWorker
 import timber.log.Timber
+import java.util.concurrent.TimeUnit
 import javax.inject.Inject
 
-class AppApplication : Application(), HasActivityInjector, HasSupportFragmentInjector {
+class AppApplication : Application(), HasActivityInjector, HasSupportFragmentInjector, BootReceiver.Listener {
 
     @field:[Inject]
     lateinit var actInjector: DispatchingAndroidInjector<Activity>
@@ -30,6 +38,10 @@ class AppApplication : Application(), HasActivityInjector, HasSupportFragmentInj
         return fragInjector
     }
 
+    override fun onBoot(intent: Intent?) {
+        startNotificationService()
+    }
+
     override fun onCreate() {
         val dataBase =
             Room.databaseBuilder(this, AbstractDataBase::class.java, DATABASE_NAME).fallbackToDestructiveMigration()
@@ -41,6 +53,19 @@ class AppApplication : Application(), HasActivityInjector, HasSupportFragmentInj
             .build().inject(this)
         super.onCreate()
         Timber.plant(Timber.DebugTree())
+        startBootReceiver()
+        startNotificationService()
+    }
+
+    private fun startNotificationService() {
+        val workRequest = PeriodicWorkRequestBuilder<NotificationWorker>(5, TimeUnit.MINUTES)
+            .setConstraints(Constraints.Builder().setRequiresBatteryNotLow(true).build())
+            .build()
+        WorkManager.getInstance().enqueue(workRequest)
+    }
+
+    private fun startBootReceiver() {
+        registerReceiver(BootReceiver(), IntentFilter(Intent.ACTION_BOOT_COMPLETED))
     }
 
     companion object {

@@ -58,6 +58,7 @@ dependencies {
     final def retrofitVersion = "2.6.0"
     final def roboletricVersion = "4.3"
     final def roomVersion = "1.1.1"
+    final def workVersion = "1.0.1"
     final Closure<Dependency> excludeSupportGroup = { exclude group: 'com.android.support' }
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
@@ -74,6 +75,7 @@ dependencies {
     implementation("com.android.support.test.espresso:espresso-idling-resource:${espressoVersion}", {
         exclude group: 'com.android.support', module: 'support-annotations'
     })
+    implementation "android.arch.work:work-runtime-ktx:$workVersion"
 
     //    Dependencias Retrofit
     implementation "com.squareup.retrofit2:retrofit:${retrofitVersion}" // Rest api
@@ -99,11 +101,13 @@ dependencies {
     testImplementation group: 'org.mockito', name: 'mockito-inline', version: "$mockitoVersion" // mock final
     kaptTest "com.google.dagger:dagger-compiler:${daggerVersion}"
 
+
     androidTestImplementation "org.mockito:mockito-android:${mockitoVersion}", excludeSupportGroup
     androidTestImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:${mockitoNhaarmanVersion}"
     androidTestImplementation "com.android.support.test:runner:${androiTestVersion}"
     androidTestImplementation "com.android.support.test.espresso:espresso-core:${espressoVersion}"
     kaptAndroidTest "com.google.dagger:dagger-compiler:${daggerVersion}"
+    androidTestImplementation "android.arch.work:work-testing:$workVersion"
 }
 
 // Usado pelo Dagger
