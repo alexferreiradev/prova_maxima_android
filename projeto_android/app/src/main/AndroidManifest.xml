@@ -14,7 +14,17 @@
             android:supportsRtl="true"
             android:theme="@style/AppTheme"
             tools:ignore="AllowBackup,GoogleAppIndexingWarning">
-        <activity android:name=".ui.view.DadosClienteActivity" android:label="@string/dados_cliente_ab_title">
+
+        <receiver android:name="dev.alexferreira.service.BootReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+                <action android:name="android.intent.action.QUICKBOOT_POWERON"/>
+            </intent-filter>
+        </receiver>
+
+        <activity
+                android:name=".ui.view.DadosClienteActivity"
+                android:label="@string/dados_cliente_ab_title">
         </activity>
         <activity android:name=".ui.view.SplashActivity">
             <intent-filter>

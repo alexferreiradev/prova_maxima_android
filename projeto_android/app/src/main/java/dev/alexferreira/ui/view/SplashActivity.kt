@@ -17,6 +17,7 @@ class SplashActivity : AbstractView<SplashContract.View, SplashContract.Presente
         Handler().postDelayed(
             {
                 startActivity(intentFor<MainMenuActivity>())
+                finish()
             }, 1000
         )
     }
