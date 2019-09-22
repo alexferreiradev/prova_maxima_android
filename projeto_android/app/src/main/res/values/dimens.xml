@@ -7,4 +7,6 @@
     <dimen name="iv_main_menu_h">48dp</dimen>
     <dimen name="iv_empty_icon_h">148dp</dimen>
     <dimen name="dados_cliente_bottom_nav_h">64dp</dimen>
+	<dimen name="dados_cliente_card_margin">24dp</dimen>
+	<dimen name="dados_cliente_card_min_h">100dp</dimen>
 </resources>

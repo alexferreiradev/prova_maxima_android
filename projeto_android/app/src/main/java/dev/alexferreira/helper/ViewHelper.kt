@@ -39,6 +39,16 @@ class ViewHelper {
             firstView.visibility = View.VISIBLE
             secondView.visibility = View.GONE
         }
+    
+        fun showFirstHideOthers(
+                firstView: View,
+                vararg views: View
+        ) {
+            firstView.visibility = View.VISIBLE
+            views.forEach {
+                it.visibility = View.GONE
+            }
+        }
 
         fun hideView(view: View?) {
             view?.visibility = View.GONE

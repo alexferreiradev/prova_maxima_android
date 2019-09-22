@@ -42,4 +42,17 @@
     <string name="notification_content">Já se passou mais de 5 minutos que não encontrou no App</string>
     <string name="notfication_channel_name">geral</string>
     <string name="notfication_channel_description">Notificações em gerais</string>
+	<string name="cliente_cpf_label">CPF</string>
+	<string name="cliente_ramo_label">Ramo de atividade:</string>
+	<string name="cliente_end_label">Endereços:</string>
+	<string name="dado_contato_telefone_label">Telefone:</string>
+	<string name="dado_contato_celular_label">Celular:</string>
+	<string name="dado_contato_conjugue_label">Cônjugue:</string>
+	<string name="dado_contato_tipo_label">Tipo:</string>
+	<string name="dado_contato_time_label">Time:</string>
+	<string name="dado_contato_email_label">E-mail:</string>
+	<string name="dado_contato_data_nasc_label">Data Nasc.:</string>
+	<string name="dado_contato_data_nasc_conjugue_label">Data Nasc. Cônjugue:</string>
+	<string name="dado_contato_empty">Não informado</string>
+	<string name="empty_contato_cliente">Não há contatos cadastrados</string>
 </resources>
