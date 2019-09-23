@@ -3,6 +3,7 @@ package dev.alexferreira.ui.contract
 import android.view.MenuItem
 import dev.alexferreira.data.model.Cliente
 import dev.alexferreira.data.model.PedidoCliente
+import dev.alexferreira.service.NetworkStatusReceiver
 import dev.alexferreira.ui.model.MainMenuModel
 
 interface SplashContract {
@@ -11,12 +12,12 @@ interface SplashContract {
 }
 
 interface MainMenuContract {
-    interface View : IView {
+    interface View : IView, INetStatusView {
         fun initAdapter(menuList: MutableList<MainMenuModel>)
         fun setVersionText(versionText: String)
     }
-
-    interface Presenter : IPresenter<View> {
+    
+    interface Presenter : IPresenter<View>, NetworkStatusReceiver.Listener {
         fun selectMenuItem(menuItem: MainMenuModel)
     }
 }

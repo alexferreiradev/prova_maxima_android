@@ -63,7 +63,11 @@ class AppApplication : Application(), HasActivityInjector, HasSupportFragmentInj
             .setConstraints(Constraints.Builder().setRequiresBatteryNotLow(true).build())
             .build()
         WorkManager.getInstance()
-            .enqueueUniquePeriodicWork("notification", ExistingPeriodicWorkPolicy.KEEP, workRequest)
+                .enqueueUniquePeriodicWork(
+                        "notification",
+                        ExistingPeriodicWorkPolicy.REPLACE,
+                        workRequest
+                )
     }
 
     private fun startBootReceiver() {

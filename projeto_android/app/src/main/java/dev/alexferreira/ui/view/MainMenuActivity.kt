@@ -1,6 +1,7 @@
 package dev.alexferreira.ui.view
 
 import android.os.Bundle
+import android.support.v4.content.res.ResourcesCompat
 import android.support.v7.widget.GridLayoutManager
 import dev.alexferreira.R
 import dev.alexferreira.ui.adapter.MainMenuAdapter
@@ -22,11 +23,35 @@ class MainMenuActivity : AbstractView<MainMenuContract.View, MainMenuContract.Pr
                 presenter.selectMenuItem(mainMenuModel)
             }
         })
-        recyclerView.layoutManager =
-            GridLayoutManager(applicationContext, resources.getInteger(R.integer.main_menu_grid_span))
+        recyclerView.layoutManager = GridLayoutManager(
+                this,
+                resources.getInteger(R.integer.main_menu_grid_span)
+        )
     }
 
     override fun setVersionText(versionText: String) {
         tv_version.text = versionText
+    }
+    
+    override fun setOnlineStatusView() {
+        iv_internet_status.setImageDrawable(
+                ResourcesCompat.getDrawable(
+                        resources,
+                        R.drawable
+                                .ic_maxima_nuvem_conectado,
+                        null
+                )
+        )
+    }
+    
+    override fun setOfflineStatusView() {
+        iv_internet_status.setImageDrawable(
+                ResourcesCompat.getDrawable(
+                        resources,
+                        R.drawable
+                                .ic_maxima_nuvem_desconectado,
+                        null
+                )
+        )
     }
 }

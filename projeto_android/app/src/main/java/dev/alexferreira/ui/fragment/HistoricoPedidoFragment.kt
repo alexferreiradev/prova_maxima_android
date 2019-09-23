@@ -12,6 +12,7 @@ import dev.alexferreira.helper.ViewHelper
 import dev.alexferreira.ui.adapter.PedidoClienteListAdapter
 import dev.alexferreira.ui.contract.DadosClienteContract
 import dev.alexferreira.ui.presenter.fragment.HistoricoPedidoFragPresenter
+import kotlinx.android.synthetic.main.dialog_legenda_pedido.*
 import kotlinx.android.synthetic.main.fragment_historico_pedido.*
 
 /**
@@ -51,7 +52,11 @@ class HistoricoPedidoFragment :
 
     override fun showLegendaDialog() {
         val builder = AlertDialog.Builder(requireContext()).setView(R.layout.dialog_legenda_pedido)
-        builder.create().show()
+        val alertDialog = builder.create()
+        alertDialog.bt_close.setOnClickListener {
+            alertDialog.dismiss()
+        }
+        alertDialog.show()
     }
 
     override fun showEmptyView() {
