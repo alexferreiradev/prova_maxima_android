@@ -23,17 +23,18 @@ data class Cliente(
     List<ClienteContato> = emptyList()
 ) : Parcelable
 
+@Entity
 @Parcelize
 data class ClienteContato(
-    @field:[PrimaryKey] var id: Long? = null,
-    @field:[ColumnInfo] var clienteFK: Long? = null,
-    @field:[ColumnInfo] var nome: String = "",
-    @field:[ColumnInfo] var telefone: String = "",
-    @field:[ColumnInfo] var celular: String = "",
-    @field:[ColumnInfo] var conjugue: String = "",
-    @field:[ColumnInfo] var tipo: String = "",
-    @field:[ColumnInfo] var time: String = "",
-    @field:[ColumnInfo SerializedName("e_mail")] var email: String = "",
-    @field:[ColumnInfo SerializedName("data_nascimento")] var dataNasc: String = "",
-    @field:[ColumnInfo SerializedName("dataNascimentoConjuge")] var dataNascConjugue: String = ""
+        @field:[PrimaryKey] var id: Long? = null,
+        @field:[ColumnInfo] var clienteFK: Long? = null,
+        @field:[ColumnInfo] var nome: String = "",
+        @field:[ColumnInfo] var telefone: String? = "",
+        @field:[ColumnInfo] var celular: String? = "",
+        @field:[ColumnInfo] var conjugue: String? = "",
+        @field:[ColumnInfo] var tipo: String? = "",
+        @field:[ColumnInfo] var time: String? = "",
+        @field:[ColumnInfo SerializedName("e_mail")] var email: String? = "",
+        @field:[ColumnInfo SerializedName("data_nascimento")] var dataNasc: String? = "",
+        @field:[ColumnInfo SerializedName("dataNascimentoConjuge")] var dataNascConjugue: String? = ""
 ) : Parcelable

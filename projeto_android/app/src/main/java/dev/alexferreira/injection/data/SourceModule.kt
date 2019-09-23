@@ -4,6 +4,7 @@ import android.arch.persistence.room.RoomDatabase
 import dagger.Module
 import dagger.Provides
 import dev.alexferreira.data.source.database.ClienteDao
+import dev.alexferreira.data.source.database.ContatoClienteDao
 import dev.alexferreira.data.source.database.DaoCreator
 import dev.alexferreira.data.source.database.PedidoClienteDao
 import dev.alexferreira.data.source.network.MaximaApi
@@ -18,6 +19,17 @@ class SourceModule {
         if (database is DaoCreator) {
             val daoCreator = database as DaoCreator
             return daoCreator.createClienteDao()
+        } else {
+            throw IllegalArgumentException("Database não implementa DaoCreator")
+        }
+    }
+    
+    @ApplicationScope
+    @Provides
+    fun provideContatoClienteDao(database: RoomDatabase): ContatoClienteDao {
+        if (database is DaoCreator) {
+            val daoCreator = database as DaoCreator
+            return daoCreator.createContatoClienteDao()
         } else {
             throw IllegalArgumentException("Database não implementa DaoCreator")
         }
