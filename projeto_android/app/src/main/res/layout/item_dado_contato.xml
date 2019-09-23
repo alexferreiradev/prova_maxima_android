@@ -2,8 +2,10 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
 											 xmlns:app="http://schemas.android.com/apk/res-auto"
 											 xmlns:tools="http://schemas.android.com/tools"
-											 android:layout_width="match_parent"
-											 android:layout_height="match_parent"
+											 android:layout_width="wrap_content"
+											 android:layout_height="wrap_content"
+											 android:minWidth="@dimen/dados_cliente_card_min_h"
+											 app:layout_constraintWidth_min="@dimen/dados_cliente_card_min_h"
 		>
 
 	<TextView
@@ -12,6 +14,7 @@
 			android:id="@+id/tv_label"
 			tools:text="Telefone:"
 			android:textColor="@color/label_text"
+			android:textSize="12sp"
 			app:layout_constraintStart_toStartOf="parent"
 			android:layout_marginLeft="8dp"
 			android:layout_marginStart="8dp"
@@ -29,6 +32,9 @@
 			android:layout_height="wrap_content"
 			android:id="@+id/tv_data"
 			tools:text="(62) 0000-0000"
+			app:layout_constraintWidth_min="@dimen/dados_cliente_contato_min_w"
+			android:textSize="12sp"
+			android:ellipsize="end"
 			app:layout_constraintStart_toEndOf="@+id/tv_label"
 			android:layout_marginLeft="8dp"
 			android:layout_marginStart="8dp"
@@ -39,8 +45,9 @@
 			/>
 
 	<ImageView
-			android:layout_width="wrap_content"
-			android:layout_height="wrap_content"
+			android:layout_width="16dp"
+			android:layout_height="16dp"
+			android:scaleType="fitCenter"
 			tools:srcCompat="@drawable/ic_maxima_telefone"
 			android:id="@+id/iv_icon_contato"
 			android:contentDescription="@string/cd_tipo_contato"
@@ -51,7 +58,7 @@
 			android:layout_marginEnd="8dp"
 			android:layout_marginRight="8dp"
 			app:layout_constraintHorizontal_bias="0.5"
-			app:layout_constraintTop_toTopOf="@+id/tv_data"
-			app:layout_constraintBottom_toBottomOf="@+id/tv_data"
+			app:layout_constraintTop_toTopOf="@+id/tv_label"
+			app:layout_constraintBottom_toBottomOf="@+id/tv_label"
 			/>
 </android.support.constraint.ConstraintLayout>

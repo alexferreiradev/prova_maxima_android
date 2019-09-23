@@ -88,7 +88,7 @@ class DadosClienteFragment : AbstractFragment<DadosClienteContract.DadosClienteF
         if (contatoList.isEmpty()) {
             ViewHelper
                     .showFirstHideSecond(
-                            tv_empty,
+                            tv_empty_contato,
                             rv_contatos_cliente
                     )
         } else {
@@ -100,7 +100,7 @@ class DadosClienteFragment : AbstractFragment<DadosClienteContract.DadosClienteF
             ViewHelper
                     .showFirstHideSecond(
                             rv_contatos_cliente,
-                            tv_empty
+                            tv_empty_contato
                     )
         }
     }

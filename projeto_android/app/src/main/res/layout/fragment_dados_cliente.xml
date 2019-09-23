@@ -42,14 +42,10 @@
 		<include
 				android:id="@+id/included_item_dados"
 				layout="@layout/item_cliente_header"
+				android:layout_margin="@dimen/dados_cliente_card_margin"
 				android:layout_width="0dp"
-				android:layout_height="wrap_content"
+				android:layout_height="0dp"
 				app:layout_constraintHeight_min="@dimen/dados_cliente_card_min_h"
-				android:layout_marginStart="8dp"
-				android:layout_marginLeft="8dp"
-				android:layout_marginTop="8dp"
-				android:layout_marginEnd="8dp"
-				android:layout_marginRight="8dp"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toTopOf="parent"
@@ -59,14 +55,10 @@
 		<include
 				android:id="@+id/included_item_contatos"
 				layout="@layout/item_contatos_cliente"
+				android:layout_margin="@dimen/dados_cliente_card_margin"
 				android:layout_width="0dp"
-				android:layout_height="wrap_content"
+				android:layout_height="0dp"
 				app:layout_constraintHeight_min="@dimen/dados_cliente_card_min_h"
-				android:layout_marginStart="8dp"
-				android:layout_marginLeft="8dp"
-				android:layout_marginTop="8dp"
-				android:layout_marginEnd="8dp"
-				android:layout_marginRight="8dp"
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toBottomOf="@+id/included_item_dados"
@@ -89,6 +81,9 @@
 				app:layout_constraintEnd_toEndOf="parent"
 				app:layout_constraintStart_toStartOf="parent"
 				app:layout_constraintTop_toBottomOf="@+id/included_item_contatos"
+				app:layout_constraintBottom_toBottomOf="parent"
+				app:layout_constraintVertical_bias="0.0"
+				android:layout_marginTop="16dp"
 				/>
 	</android.support.constraint.ConstraintLayout>
 </android.support.design.widget.CoordinatorLayout>

@@ -1,7 +1,7 @@
 package dev.alexferreira.ui.adapter
 
 import android.content.Context
-import android.support.v7.widget.LinearLayoutManager
+import android.support.v7.widget.GridLayoutManager
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
@@ -67,7 +67,10 @@ class ContatosClienteAdapter(
                     context,
                     modelList
             )
-            dadosRV.layoutManager = LinearLayoutManager(context)
+            dadosRV.layoutManager = GridLayoutManager(
+                    context,
+                    context.resources.getInteger(R.integer.dado_cli_grid_span)
+            )
         }
         
         private fun createDadoListFromContato(
@@ -111,8 +114,7 @@ class ContatosClienteAdapter(
                                 createContentString(
                                         context,
                                         model.dataNasc
-                                ),
-                                R.drawable.ic_maxima_telefone
+                                )
                         )
                 )
                 add(
@@ -121,8 +123,7 @@ class ContatosClienteAdapter(
                                 createContentString(
                                         context,
                                         model.conjugue
-                                ),
-                                R.drawable.ic_maxima_telefone
+                                )
                         )
                 )
                 add(
